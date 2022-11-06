@@ -1,3 +1,4 @@
+import 'package:beauty_app/app/constants/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,6 +11,10 @@ void main() {
       title: "Beauty App",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+      theme: ThemeConfig.lightTheme,
+      darkTheme: ThemeConfig.darkTheme,
+      themeMode: ThemeMode.light,
     ),
   );
 }
+ 

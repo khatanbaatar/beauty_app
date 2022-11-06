@@ -11,6 +11,14 @@ dependencies:
   flutter: 
     sdk: flutter
 
+  share_plus: ^4.0.4
+
+  cached_network_image: ^3.2.0
+  card_swiper: ^2.0.3
+  flutter_pagewise: ^2.0.1
+  flutter_svg: ^1.0.3
+  flex_color_scheme: ^5.0.1
+
 dev_dependencies: 
   flutter_lints: 2.0.1
   flutter_test: 
@@ -19,3 +27,5 @@ dev_dependencies:
 flutter: 
   uses-material-design: true
 
+  assets:
+    - assets/images/

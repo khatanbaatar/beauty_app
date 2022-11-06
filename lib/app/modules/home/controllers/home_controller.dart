@@ -1,23 +1,31 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  RxInt _currentIndex = 0.obs;
+  bool _animating = false;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  PageController pageController = PageController(
+    initialPage: 0,
+  );
+
+  int get currentIndex => _currentIndex.value;
+
+  void changeTab(int _) async {
+    print(_);
+    final int tmp = _currentIndex.value;
+    _currentIndex.value = _;
+    _animating = true;
+    pageController.jumpToPage(_);
+    /*await pageController.animateToPage(_,
+        duration: Duration(milliseconds: 500 + (_ - tmp).abs() * 50),
+        curve: Curves.easeInOutExpo);*/
+    _animating = false;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void changePage(int _) {
+    if (!_animating) {
+      _currentIndex.value = _;
+    }
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
