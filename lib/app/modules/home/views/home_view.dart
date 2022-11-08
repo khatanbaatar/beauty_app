@@ -14,9 +14,25 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        child: Container(
+          height: 98,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x199e77ed),
+                offset: Offset(0, 4),
+                blurRadius: 6,
+                spreadRadius: 0,
+              ),
+              BoxShadow(
+                color: Color(0x199e77ed),
+                offset: Offset(0, 10),
+                blurRadius: 15,
+                spreadRadius: 0,
+              ),
+            ],
+          ),
         ),
       ),
     );
