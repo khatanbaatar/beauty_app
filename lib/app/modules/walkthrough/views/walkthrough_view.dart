@@ -124,7 +124,9 @@ class WalkthroughView extends GetView<WalkthroughController> {
             ),
             TextButton(
                 onPressed: () {
-                  Get.toNamed(Routes.HELP);
+                  // Get.toNamed(Routes.HELP);
+                  // Get.toNamed(Routes.MAIN);
+                  Get.toNamed(Routes.DETAIL);
                 },
                 child: const Text(
                   "Тусламж?",

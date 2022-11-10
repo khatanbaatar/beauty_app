@@ -1,6 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class ZeplinColors {
+  static const Color rating_color = Color(0xFFFF5A1F);
   static const Color black_white_black = Color(0xff000000);
   static const Color black_white_white = Color(0xffffffff);
   static const Color system_color_primary_50 = Color(0xfff9f5ff);

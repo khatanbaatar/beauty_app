@@ -1,5 +1,4 @@
-import 'package:beauty_app/app/constants/colors.dart';
-import 'package:beauty_app/app/modules/detail/views/detail_view.dart';
+import 'package:beauty_app/app/modules/details/detail/views/detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,7 +18,7 @@ class HomeView extends GetView<HomeController> {
       body: Center(
         child: Container(
           height: 98,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             boxShadow: [
               BoxShadow(
