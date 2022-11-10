@@ -1,31 +1,39 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   RxInt _currentIndex = 0.obs;
   bool _animating = false;
 
-  PageController pageController = PageController(
-    initialPage: 0,
-  );
-
-  int get currentIndex => _currentIndex.value;
-
-  void changeTab(int _) async {
-    print(_);
-    final int tmp = _currentIndex.value;
-    _currentIndex.value = _;
-    _animating = true;
-    pageController.jumpToPage(_);
-    /*await pageController.animateToPage(_,
-        duration: Duration(milliseconds: 500 + (_ - tmp).abs() * 50),
-        curve: Curves.easeInOutExpo);*/
-    _animating = false;
+  final count = 0.obs;
+  @override
+  void onInit() {
+    super.onInit();
+    initialization();
   }
 
-  void changePage(int _) {
-    if (!_animating) {
-      _currentIndex.value = _;
-    }
+  @override
+  void onReady() {
+    super.onReady();
+    initialization();
   }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
+  void initialization() async {
+    print('ready in 3...');
+    await Future.delayed(const Duration(seconds: 1));
+    print('ready in 2...');
+    await Future.delayed(const Duration(seconds: 1));
+    print('ready in 1...');
+    await Future.delayed(const Duration(seconds: 1));
+    print('go!');
+    FlutterNativeSplash.remove();
+  }
+
+  void increment() => count.value++;
 }

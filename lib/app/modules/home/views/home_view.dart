@@ -11,79 +11,28 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-//     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-//   statusBarColor: Colors.white
-// ));
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    return Obx(
-      () => Scaffold(
-        body: PageView(
-          // physics: NeverScrollableScrollPhysics(),
-          controller: controller.pageController,
-          onPageChanged: controller.changePage,
-          children: [
-            Container(),
-            DetailView(),
-            Container(),
-            Container(),
-          ],
-        ),
-        bottomNavigationBar: Container(
-          /*decoration: BoxDecoration(
-            color: ThemeConfig.colors.onInverseSurface,
-            border: Border(
-              top: BorderSide(color: ThemeConfig.colors.onInverseSurface),
-            ),
-          ),*/
-          height: 60,
-          child: BottomNavigationBar(
-            currentIndex: controller.currentIndex,
-            type: BottomNavigationBarType.fixed,
-            onTap: controller.changeTab,
-            items: [
-              BottomNavigationBarItem(
-                label: controller.currentIndex == 0 ? "・" : "",
-                tooltip: "home".tr,
-                icon: Icon(Icons.home),
-                /*icon: SvgPicture.asset(Assets.home,
-                    color: controller.currentIndex == 0
-                        ? ThemeConfig.colors.secondary
-                        : null,
-                    width: 21,
-                    semanticsLabel: "home".tr),*/
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('HomeView'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Container(
+          height: 98,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x199e77ed),
+                offset: Offset(0, 4),
+                blurRadius: 6,
+                spreadRadius: 0,
               ),
-              BottomNavigationBarItem(
-                label: controller.currentIndex == 1 ? "・" : "",
-                tooltip: "heart".tr,
-                icon: Icon(Icons.home),
-                /*icon: SvgPicture.asset(Assets.heartTick,
-                    color: controller.currentIndex == 1
-                        ? ThemeConfig.colors.secondary
-                        : null,
-                    width: 21,
-                    semanticsLabel: "heart".tr),*/
-              ),
-              BottomNavigationBarItem(
-                label: controller.currentIndex == 2 ? "・" : "",
-                tooltip: "route".tr,
-                icon: Icon(Icons.home),
-                /*icon: SvgPicture.asset(Assets.routeSquare,
-                    color: controller.currentIndex == 2
-                        ? ThemeConfig.colors.secondary
-                        : null,
-                    width: 21,
-                    semanticsLabel: "route".tr),*/
-              ),
-              BottomNavigationBarItem(
-                label: controller.currentIndex == 3 ? "・" : "",
-                tooltip: "user".tr,
-                icon: Icon(Icons.home),
-                /*icon: SvgPicture.asset(Assets.userSquare,
-                    color: controller.currentIndex == 3
-                        ? ThemeConfig.colors.secondary
-                        : null,
-                    width: 21,
-                    semanticsLabel: "user".tr),*/
+              BoxShadow(
+                color: Color(0x199e77ed),
+                offset: Offset(0, 10),
+                blurRadius: 15,
+                spreadRadius: 0,
               ),
             ],
           ),

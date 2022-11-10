@@ -10,6 +10,10 @@ dependencies:
   get: 4.6.5
   flutter: 
     sdk: flutter
+  flutter_native_splash: ^2.2.11
+  get_storage: ^2.0.3
+  smooth_page_indicator: ^1.0.0+2
+  styled_widget: ^0.4.0+3
 
   share_plus: ^4.0.4
 
@@ -26,6 +30,8 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  assets:
+    - assets/
 
   assets:
     - assets/images/
