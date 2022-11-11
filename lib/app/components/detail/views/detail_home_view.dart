@@ -9,15 +9,14 @@ import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:get/get.dart';
 
 class DetailHomeView extends GetView<DetailHomeController> {
-  DetailHomeView();
-  // GlobalKey key = GlobalKey();
+  const DetailHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     Get.lazyPut<DetailHomeController>(
       () => DetailHomeController(),
     );
-    double screenHeight = Get.height * 0.80;
+    double screenHeight = Get.height * 1.0 - Get.statusBarHeight - 9; //0.80;
     /*RenderObject? box = key.currentContext?.findRenderObject();
     if (box != null) {
       Offset? position = (box as RenderBox).localToGlobal(Offset.zero);

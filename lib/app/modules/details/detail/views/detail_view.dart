@@ -29,9 +29,10 @@ class DetailView extends GetView<DetailController> {
           headerSliverBuilder: (context, value) {
             return [
               SliverAppBar(
-                pinned: true,
-                floating: false,
-                collapsedHeight: 28,
+                pinned: false,
+                floating: true,
+                snap: false,
+                // collapsedHeight: Get.statusBarHeight,
                 expandedHeight: 388.0,
                 automaticallyImplyLeading: false,
                 // backgroundColor: ThemeConfig.colors.primary,
@@ -65,6 +66,40 @@ class DetailView extends GetView<DetailController> {
                                 );
                               },
                               itemCount: 3,
+                              pagination: const SwiperPagination(
+                                alignment: Alignment.bottomCenter,
+                                margin: EdgeInsets.only(bottom: 10),
+                                builder: DotSwiperPaginationBuilder(
+                                  activeSize: 6,
+                                  size: 6,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 40,
+                              right: 0,
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.horizontal(
+                                    left: Radius.circular(6),
+                                  ),
+                                  color: Color(0xff7f56d9),
+                                ),
+                                padding: const EdgeInsets.only(
+                                  left: 16,
+                                  right: 48,
+                                  top: 6,
+                                  bottom: 6,
+                                ),
+                                child: const Text(
+                                  '-39%',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
                             ),
                             Padding(
                               padding:
@@ -77,9 +112,93 @@ class DetailView extends GetView<DetailController> {
                                     onPressed: () {},
                                     icon: const SvgAsset(Assets.bookmark),
                                   ),
-                                  IconButton(
-                                    onPressed: () {},
+                                  PopupMenuButton(
+                                    // Callback that sets the selected popup menu item.
+                                    onSelected: controller.chooseMenu,
                                     icon: const SvgAsset(Assets.trailing),
+                                    itemBuilder: (BuildContext context) =>
+                                        <PopupMenuEntry>[
+                                      PopupMenuItem(
+                                        height: 40,
+                                        value: 'share',
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: const [
+                                            SvgAsset(Assets.share),
+                                            SizedBox(width: 6),
+                                            Text(
+                                              'Хуваалцах',
+                                              style: TextStyle(
+                                                color: ZeplinColors
+                                                    .system_color_gray_700,
+                                                fontFamily: 'Inter',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      PopupMenuItem(
+                                        height: 40,
+                                        value: 'info',
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: const [
+                                            SvgAsset(Assets.info),
+                                            SizedBox(width: 6),
+                                            Text(
+                                              'Мэдээ мэдээлэл',
+                                              style: TextStyle(
+                                                color: ZeplinColors
+                                                    .system_color_gray_700,
+                                                fontFamily: 'Inter',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      PopupMenuItem(
+                                        height: 40,
+                                        value: 'job',
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: const [
+                                            SvgAsset(Assets.briefcase),
+                                            SizedBox(width: 6),
+                                            Text(
+                                              'Ажлын зар',
+                                              style: TextStyle(
+                                                color: ZeplinColors
+                                                    .system_color_gray_700,
+                                                fontFamily: 'Inter',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      PopupMenuItem(
+                                        height: 40,
+                                        value: 'report',
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: const [
+                                            SvgAsset(Assets.report),
+                                            SizedBox(width: 6),
+                                            Text(
+                                              'Report',
+                                              style: TextStyle(
+                                                color: ZeplinColors
+                                                    .system_color_gray_700,
+                                                fontFamily: 'Inter',
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -141,132 +260,121 @@ class DetailView extends GetView<DetailController> {
                 ),
                 actions: <Widget>[
                   //
+
+                  const BackButtonView(),
                 ],
                 bottom: PreferredSize(
-                  // preferredSize: Size(double.infinity, 120),
-                  preferredSize: Size(double.infinity, 38),
-                  child: Column(
-                    children: [
-                      Container(
-                        color: Colors.white,
-                        width: double.infinity,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Obx(
-                              () => TabBar(
-                                isScrollable: true,
-                                // physics: NeverScrollableScrollPhysics(),
-                                controller: controller.tabController,
-                                indicatorSize: TabBarIndicatorSize.tab,
-                                indicator: CircleTabIndicator(
-                                    color: Colors.purple[200], radius: 2),
-                                tabs: [
-                                  Tab(
-                                    child: Text(
-                                      "Home".tr,
-                                      style: TextStyle(
-                                        color: controller.tabIndex.value == 0
-                                            ? ZeplinColors.system_color_gray_900
-                                            : ZeplinColors
-                                                .system_color_gray_500,
-                                        fontSize: 14,
-                                        fontWeight:
-                                            controller.tabIndex.value == 0
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                      ),
-                                    ),
+                  preferredSize: const Size(double.infinity, 28),
+                  child: Container(
+                    color: Colors.white,
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Obx(
+                          () => TabBar(
+                            isScrollable: true,
+                            // physics: NeverScrollableScrollPhysics(),
+                            controller: controller.tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
+                            indicator: CircleTabIndicator(
+                                color: Colors.purple[200], radius: 2),
+                            tabs: [
+                              Tab(
+                                child: Text(
+                                  "Home".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 0
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 0
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
                                   ),
-                                  Tab(
-                                    child: Text(
-                                      "Products".tr,
-                                      style: TextStyle(
-                                        color: controller.tabIndex.value == 1
-                                            ? ZeplinColors.system_color_gray_900
-                                            : ZeplinColors
-                                                .system_color_gray_500,
-                                        fontSize: 14,
-                                        fontWeight:
-                                            controller.tabIndex.value == 1
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                  Tab(
-                                    child: Text(
-                                      "Menu".tr,
-                                      style: TextStyle(
-                                        color: controller.tabIndex.value == 2
-                                            ? ZeplinColors.system_color_gray_900
-                                            : ZeplinColors
-                                                .system_color_gray_500,
-                                        fontSize: 14,
-                                        fontWeight:
-                                            controller.tabIndex.value == 2
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                  Tab(
-                                    child: Text(
-                                      "Designer".tr,
-                                      style: TextStyle(
-                                        color: controller.tabIndex.value == 3
-                                            ? ZeplinColors.system_color_gray_900
-                                            : ZeplinColors
-                                                .system_color_gray_500,
-                                        fontSize: 14,
-                                        fontWeight:
-                                            controller.tabIndex.value == 3
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                  Tab(
-                                    child: Text(
-                                      "Style".tr,
-                                      style: TextStyle(
-                                        color: controller.tabIndex.value == 4
-                                            ? ZeplinColors.system_color_gray_900
-                                            : ZeplinColors
-                                                .system_color_gray_500,
-                                        fontSize: 14,
-                                        fontWeight:
-                                            controller.tabIndex.value == 4
-                                                ? FontWeight.w600
-                                                : FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
-                            Container(
-                              height: 8,
-                              color: ZeplinColors.system_color_gray_100,
-                            ),
-                          ],
+                              Tab(
+                                child: Text(
+                                  "Products".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 1
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 1
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              Tab(
+                                child: Text(
+                                  "Menu".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 2
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 2
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              Tab(
+                                child: Text(
+                                  "Designer".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 3
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 3
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              Tab(
+                                child: Text(
+                                  "Style".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 4
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 4
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          height: 8,
+                          color: ZeplinColors.system_color_gray_100,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ];
           },
-          body: TabBarView(
-            controller: controller.tabController,
-            children: [
-              DetailHomeView(),
-              Container(),
-              Container(),
-              Container(),
-              Container(),
-            ],
+          body: SafeArea(
+            child: TabBarView(
+              controller: controller.tabController,
+              children: [
+                DetailHomeView(),
+                Container(),
+                Container(),
+                Container(),
+                Container(),
+              ],
+            ),
           ),
         ),
       ),

@@ -8,4 +8,8 @@ class Assets {
   static const String trailing = "assets/trailing_icon.svg";
   static const String bookmark = "assets/trailing_icon(1).svg";
   static const String bookmarkGrey = "assets/bookmark.svg";
+  static const String share = "assets/arrow_up_from_square.svg";
+  static const String briefcase = "assets/briefcase_alt.svg";
+  static const String info = "assets/file_alt.svg";
+  static const String report = "assets/octagon_exclamation.svg";
 }

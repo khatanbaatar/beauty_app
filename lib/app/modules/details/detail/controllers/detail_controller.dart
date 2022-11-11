@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class DetailController extends GetxController 
+class DetailController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
   RxInt tabIndex = 0.obs;
@@ -14,4 +14,6 @@ class DetailController extends GetxController
       tabIndex.value = tabController.index;
     });
   }
+
+  void chooseMenu(test) {}
 }
