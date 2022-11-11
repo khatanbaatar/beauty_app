@@ -1,6 +1,7 @@
 import 'package:beauty_app/app/components/common/views/back_button_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/common/views/circular_tab_indicator.dart';
+import 'package:beauty_app/app/components/detail/views/detail_home_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -155,7 +156,7 @@ class DetailView extends GetView<DetailController> {
                             Obx(
                               () => TabBar(
                                 isScrollable: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                // physics: NeverScrollableScrollPhysics(),
                                 controller: controller.tabController,
                                 indicatorSize: TabBarIndicatorSize.tab,
                                 indicator: CircleTabIndicator(
@@ -260,12 +261,7 @@ class DetailView extends GetView<DetailController> {
           body: TabBarView(
             controller: controller.tabController,
             children: [
-              Container(
-                // color: Get.isDarkMode
-                //     ? ThemeConfig.colors.primary
-                //     : ThemeConfig.colors.primaryContainer,
-                child: Text("Test"),
-              ),
+              DetailHomeView(),
               Container(),
               Container(),
               Container(),
