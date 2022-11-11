@@ -9,7 +9,7 @@ class DetailController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    tabController = TabController(length: 5, vsync: this);
+    tabController = TabController(length: 6, vsync: this);
     tabController.addListener(() {
       tabIndex.value = tabController.index;
     });

@@ -4,8 +4,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 class ThemeConfig {
   static ThemeData lightTheme = FlexThemeData.light(
     fontFamily: '.SF Pro Display',
-    textTheme: TextTheme(
-        ),
+    textTheme: TextTheme(),
     onPrimary: Color(0xff111928),
     onPrimaryContainer: Color(0xff111928),
     colors: const FlexSchemeColor(
@@ -23,7 +22,7 @@ class ThemeConfig {
       elevatedButtonRadius: 10.0,
       outlinedButtonRadius: 5.0,
       textButtonSchemeColor: SchemeColor.secondary,
-      elevatedButtonSchemeColor: SchemeColor.tertiaryContainer,
+      elevatedButtonSchemeColor: SchemeColor.primary,
       outlinedButtonSchemeColor: SchemeColor.secondaryContainer,
       inputDecoratorSchemeColor: SchemeColor.primaryContainer,
       tabBarIndicatorSchemeColor: SchemeColor.tertiaryContainer,

@@ -2,6 +2,7 @@ import 'package:beauty_app/app/components/common/views/back_button_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/common/views/circular_tab_indicator.dart';
 import 'package:beauty_app/app/components/detail/views/detail_home_view.dart';
+import 'package:beauty_app/app/components/detail/views/detail_product_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -258,11 +259,7 @@ class DetailView extends GetView<DetailController> {
                     ),
                   ),
                 ),
-                actions: <Widget>[
-                  //
-
-                  const BackButtonView(),
-                ],
+                actions: <Widget>[],
                 bottom: PreferredSize(
                   preferredSize: const Size(double.infinity, 28),
                   child: Container(
@@ -296,7 +293,7 @@ class DetailView extends GetView<DetailController> {
                               ),
                               Tab(
                                 child: Text(
-                                  "Products".tr,
+                                  "Бүтээгдэхүүн".tr,
                                   style: TextStyle(
                                     color: controller.tabIndex.value == 1
                                         ? ZeplinColors.system_color_gray_900
@@ -310,7 +307,7 @@ class DetailView extends GetView<DetailController> {
                               ),
                               Tab(
                                 child: Text(
-                                  "Menu".tr,
+                                  "Меню".tr,
                                   style: TextStyle(
                                     color: controller.tabIndex.value == 2
                                         ? ZeplinColors.system_color_gray_900
@@ -324,7 +321,7 @@ class DetailView extends GetView<DetailController> {
                               ),
                               Tab(
                                 child: Text(
-                                  "Designer".tr,
+                                  "Дизайнер".tr,
                                   style: TextStyle(
                                     color: controller.tabIndex.value == 3
                                         ? ZeplinColors.system_color_gray_900
@@ -338,13 +335,27 @@ class DetailView extends GetView<DetailController> {
                               ),
                               Tab(
                                 child: Text(
-                                  "Style".tr,
+                                  "Стиль".tr,
                                   style: TextStyle(
                                     color: controller.tabIndex.value == 4
                                         ? ZeplinColors.system_color_gray_900
                                         : ZeplinColors.system_color_gray_500,
                                     fontSize: 14,
                                     fontWeight: controller.tabIndex.value == 4
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              Tab(
+                                child: Text(
+                                  "Сэтгэгдэл".tr,
+                                  style: TextStyle(
+                                    color: controller.tabIndex.value == 5
+                                        ? ZeplinColors.system_color_gray_900
+                                        : ZeplinColors.system_color_gray_500,
+                                    fontSize: 14,
+                                    fontWeight: controller.tabIndex.value == 5
                                         ? FontWeight.w600
                                         : FontWeight.w400,
                                   ),
@@ -369,6 +380,7 @@ class DetailView extends GetView<DetailController> {
               controller: controller.tabController,
               children: [
                 DetailHomeView(),
+                DetailProductView(),
                 Container(),
                 Container(),
                 Container(),
