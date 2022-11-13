@@ -1,6 +1,7 @@
 import 'package:beauty_app/app/components/common/views/back_button_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/common/views/circular_tab_indicator.dart';
+import 'package:beauty_app/app/components/detail/views/detail_review_view.dart';
 import 'package:beauty_app/app/components/detail/views/detail_home_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
@@ -265,7 +266,7 @@ class DetailView extends GetView<DetailController> {
               Container(),
               Container(),
               Container(),
-              Container(),
+              DetailReviewView(),
             ],
           ),
         ),

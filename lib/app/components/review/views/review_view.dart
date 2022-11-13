@@ -63,7 +63,8 @@ class ReviewView extends GetView {
                   .entries
                   .map(
                     // ignore: unnecessary_cast
-                    (review) => ReviewCardView(review: review.value) as Widget,
+                    // (review) => ReviewCardView(review: review.value) as Widget,
+                    (review) => ReviewCardView() as Widget,
                   )
                   .toList()
                 ..add(Container()),

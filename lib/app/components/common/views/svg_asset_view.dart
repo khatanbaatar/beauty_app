@@ -22,7 +22,7 @@ class SvgAsset extends GetView {
           )
         : SvgPicture.asset(
             icon,
-            // color: color ?? ThemeConfig.colors.onPrimary,
+            color: color,
             width: width,
             height: height,
           );

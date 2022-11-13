@@ -2,6 +2,7 @@ class Assets {
   static const String hairSalon = "assets/images/img.png";
   static const String sample = "assets/images/sample.jpg";
 
+  static const String starSharp = "assets/star_sharp.svg";
   static const String star = "assets/star_100.svg";
   static const String back = "assets/leading_icon.svg";
   static const String locationPin = "assets/location_pin.svg";
