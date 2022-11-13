@@ -266,7 +266,7 @@ class DetailView extends GetView<DetailController> {
               Container(),
               Container(),
               Container(),
-              DetailReviewView(),
+              const DetailReviewView(),
             ],
           ),
         ),
