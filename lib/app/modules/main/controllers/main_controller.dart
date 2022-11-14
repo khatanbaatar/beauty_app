@@ -5,32 +5,16 @@ import 'package:get/get.dart';
 
 const double viewportFraction = 0.553846153846;
 
-class MainController extends GetxController 
+class MainController extends GetxController
     with GetSingleTickerProviderStateMixin {
-
-  late TabController tabController;
-  RxInt tabIndex = 0.obs;
-
   RxInt _currentIndex = 0.obs;
   bool _animating = false;
 
   PageController pageController = PageController(
     initialPage: 0,
   );
-  PageController nearbyController = PageController(
-    viewportFraction: viewportFraction,
-  );
 
   int get currentIndex => _currentIndex.value;
-
-  @override
-  void onInit() {
-    super.onInit();
-    tabController = TabController(length: 4, vsync: this);
-    tabController.addListener(() {
-      tabIndex.value = tabController.index;
-    });
-  }
 
   void changeTab(int _) async {
     print(_);

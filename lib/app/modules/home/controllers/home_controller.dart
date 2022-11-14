@@ -1,16 +1,29 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+const double viewportFraction = 0.553846153846;
+
+class HomeController extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  RxInt tabIndex = 0.obs;
   RxInt _currentIndex = 0.obs;
   bool _animating = false;
+  late TabController tabController;
+  PageController nearbyController = PageController(
+    viewportFraction: viewportFraction,
+  );
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
     initialization();
+    tabController = TabController(length: 4, vsync: this);
+    tabController.addListener(() {
+      tabIndex.value = tabController.index;
+    });
   }
 
   @override

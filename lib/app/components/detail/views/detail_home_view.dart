@@ -1,8 +1,9 @@
 import 'package:beauty_app/app/components/common/views/loading_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
-import 'package:beauty_app/app/components/common/views/cached_network_image_view.dart';
-import 'package:beauty_app/app/components/common/views/profile_pic_view.dart';
+import 'package:beauty_app/app/components/detail/views/detail_designer_item_view.dart';
+import 'package:beauty_app/app/components/detail/views/detail_menu_item_view.dart';
 import 'package:beauty_app/app/components/detail/controllers/detail_home_controller.dart';
+import 'package:beauty_app/app/components/review/views/review_card_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:flutter/material.dart';
@@ -18,323 +19,20 @@ class DetailHomeView extends GetView<DetailHomeController> {
     Get.lazyPut<DetailHomeController>(
       () => DetailHomeController(),
     );
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Bio',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_900,
-                  fontSize: 16,
-                  fontFamily: 'SFProDisplay',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_700,
-                  fontFamily: 'SFProDisplay',
-                ),
-              ),
-              const SizedBox(height: 16),
-              const Divider(),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Даваа - Баасан',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_700,
-                      fontFamily: 'SFProDisplay',
-                    ),
-                  ),
-                  Text(
-                    '10:00 - 21:30',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_500,
-                      fontFamily: 'SFProDisplay',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Бямба - Ням',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_700,
-                      fontFamily: 'SFProDisplay',
-                    ),
-                  ),
-                  Text(
-                    'Амарна',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_500,
-                      fontFamily: 'SFProDisplay',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ZeplinColors.system_color_primary_50,
-                        ),
-                        child: IconButton(
-                          icon: const SvgAsset(Assets.homeComment),
-                          onPressed: () {},
-                        ),
-                      ),
-                      const Text(
-                        'Message',
-                        style: TextStyle(
-                          color: ZeplinColors.system_color_gray_500,
-                          fontSize: 12,
-                          fontFamily: 'SFProDisplay',
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ZeplinColors.system_color_primary_50,
-                        ),
-                        child: IconButton(
-                          icon: const SvgAsset(Assets.homePhone),
-                          onPressed: () {},
-                        ),
-                      ),
-                      const Text(
-                        'Call',
-                        style: TextStyle(
-                          color: ZeplinColors.system_color_gray_500,
-                          fontSize: 12,
-                          fontFamily: 'SFProDisplay',
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ZeplinColors.system_color_primary_50,
-                        ),
-                        child: IconButton(
-                          icon: const SvgAsset(Assets.homeDirection),
-                          onPressed: () {},
-                        ),
-                      ),
-                      const Text(
-                        'Direction',
-                        style: TextStyle(
-                          color: ZeplinColors.system_color_gray_500,
-                          fontSize: 12,
-                          fontFamily: 'SFProDisplay',
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: ZeplinColors.system_color_primary_50,
-                        ),
-                        child: IconButton(
-                          icon: const SvgAsset(Assets.homeShare),
-                          onPressed: () {},
-                        ),
-                      ),
-                      const Text(
-                        'Share',
-                        style: TextStyle(
-                          color: ZeplinColors.system_color_gray_500,
-                          fontSize: 12,
-                          fontFamily: 'SFProDisplay',
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Container(
-          height: 8,
-          color: ZeplinColors.system_color_gray_100,
-        ),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          color: Colors.white,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Эрэлттэй үйлчилгээ',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_900,
-                      fontSize: 16,
-                      fontFamily: 'SFProDisplay',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Бүгд >',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_500,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+    return CustomScrollView(
+      // physics: const BouncingScrollPhysics(),
+      slivers: <Widget>[
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
               Container(
-                height: 100,
-                padding: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                  border: Border.all(color: ZeplinColors.system_color_gray_200),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    // aspectRatio: 2.3867,
-                    width: double.infinity,
-                    height: 150,
-                    child: Row(
-                      children: [
-                        AspectRatio(
-                          aspectRatio: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                // width: double.infinity,
-                                height: double.infinity,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: CachedNetworkImageView(
-                                  fit: BoxFit.fill,
-                                  imageUrl:
-                                      "https://i.pinimg.com/736x/41/57/55/415755c2bbc770ee52e2b4dce35f6392.jpg",
-                                  height: 100,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Үс тайралт, үс будалт хамт',
-                                  style: TextStyle(
-                                    color: ZeplinColors.system_color_gray_700,
-                                    fontFamily: 'SFProDisplay',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Expanded(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Тайралт / Будалт',
-                                        style: TextStyle(
-                                          color: ZeplinColors
-                                              .system_color_gray_500,
-                                          fontSize: 10,
-                                          fontFamily: 'SFProDisplay',
-                                        ),
-                                      ),
-                                      Text(
-                                        '85,000 ~ 120,000₮',
-                                        style: TextStyle(
-                                          color: ZeplinColors
-                                              .system_color_primary_700,
-                                          fontSize: 12,
-                                          fontFamily: 'SFProDisplay',
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          height: 8,
-          color: ZeplinColors.system_color_gray_100,
-        ),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text.rich(
-                TextSpan(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextSpan(
-                      text: 'Дизайнер ',
+                    const Text(
+                      'Bio',
                       style: TextStyle(
                         color: ZeplinColors.system_color_gray_900,
                         fontSize: 16,
@@ -342,97 +40,234 @@ class DetailHomeView extends GetView<DetailHomeController> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    TextSpan(
-                      text: '(2)',
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
                       style: TextStyle(
-                        color: ZeplinColors.system_color_primary_600,
-                        fontSize: 16,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_900,
-                  fontSize: 16,
-                  fontFamily: 'SFProDisplay',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              ListTile(
-                leading: ProfilePicView(width: 60),
-                title: Text(
-                  'Olina Laurentz',
-                  style: TextStyle(
-                    color: ZeplinColors.system_color_gray_700,
-                    fontFamily: 'SFProDisplay',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                subtitle: Row(
-                  children: [
-                    SvgAsset(Assets.heart),
-                    Text(
-                      '121',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_400,
-                        fontSize: 10,
+                        color: ZeplinColors.system_color_gray_700,
                         fontFamily: 'SFProDisplay',
                       ),
                     ),
-                    SvgAsset(Assets.sms),
-                    Text(
-                      '502',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_400,
-                        fontSize: 10,
-                        fontFamily: 'SFProDisplay',
-                      ),
-                    ),
-                  ],
-                ),
-                trailing: Container(
-                  width: Get.width * 0.4,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    const SizedBox(height: 16),
+                    const Divider(),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
-                        SvgAsset(Assets.calendar),
-                        SizedBox(width: 8),
                         Text(
-                          'Цаг захиалах',
+                          'Даваа - Баасан',
                           style: TextStyle(
                             color: ZeplinColors.system_color_gray_700,
+                            fontFamily: 'SFProDisplay',
+                          ),
+                        ),
+                        Text(
+                          '10:00 - 21:30',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_500,
+                            fontFamily: 'SFProDisplay',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Бямба - Ням',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_700,
+                            fontFamily: 'SFProDisplay',
+                          ),
+                        ),
+                        Text(
+                          'Амарна',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_500,
+                            fontFamily: 'SFProDisplay',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: ZeplinColors.system_color_primary_50,
+                              ),
+                              child: IconButton(
+                                icon: const SvgAsset(Assets.homeComment),
+                                onPressed: () {},
+                              ),
+                            ),
+                            const Text(
+                              'Message',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_500,
+                                fontSize: 12,
+                                fontFamily: 'SFProDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: ZeplinColors.system_color_primary_50,
+                              ),
+                              child: IconButton(
+                                icon: const SvgAsset(Assets.homePhone),
+                                onPressed: () {},
+                              ),
+                            ),
+                            const Text(
+                              'Call',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_500,
+                                fontSize: 12,
+                                fontFamily: 'SFProDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: ZeplinColors.system_color_primary_50,
+                              ),
+                              child: IconButton(
+                                icon: const SvgAsset(Assets.homeDirection),
+                                onPressed: () {},
+                              ),
+                            ),
+                            const Text(
+                              'Direction',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_500,
+                                fontSize: 12,
+                                fontFamily: 'SFProDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: ZeplinColors.system_color_primary_50,
+                              ),
+                              child: IconButton(
+                                icon: const SvgAsset(Assets.homeShare),
+                                onPressed: () {},
+                              ),
+                            ),
+                            const Text(
+                              'Share',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_500,
+                                fontSize: 12,
+                                fontFamily: 'SFProDisplay',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 8,
+                color: ZeplinColors.system_color_gray_100,
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Эрэлттэй үйлчилгээ',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_900,
+                            fontSize: 16,
                             fontFamily: 'SFProDisplay',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Бүгд >',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_gray_500,
+                              fontFamily: 'SFProDisplay',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                  ),
+                    DetailMenuItemView(),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
-        Container(
-          height: 8,
-          color: ZeplinColors.system_color_gray_100,
-        ),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text.rich(
-                TextSpan(
+              Container(
+                height: 8,
+                color: ZeplinColors.system_color_gray_100,
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextSpan(
-                      text: 'Сэтгэгдэл ',
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Дизайнер ',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_gray_900,
+                              fontSize: 16,
+                              fontFamily: 'SFProDisplay',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '(2)',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_primary_600,
+                              fontSize: 16,
+                              fontFamily: 'SFProDisplay',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                       style: TextStyle(
                         color: ZeplinColors.system_color_gray_900,
                         fontSize: 16,
@@ -440,53 +275,93 @@ class DetailHomeView extends GetView<DetailHomeController> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    TextSpan(
-                      text: '(15)',
+                    DetailDesignerItemView(),
+                    DetailDesignerItemView(),
+                  ],
+                ),
+              ),
+              Container(
+                height: 8,
+                color: ZeplinColors.system_color_gray_100,
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Сэтгэгдэл ',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_gray_900,
+                              fontSize: 16,
+                              fontFamily: 'SFProDisplay',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '(15)',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_primary_600,
+                              fontSize: 16,
+                              fontFamily: 'SFProDisplay',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                       style: TextStyle(
-                        color: ZeplinColors.system_color_primary_600,
+                        color: ZeplinColors.system_color_gray_900,
                         fontSize: 16,
                         fontFamily: 'SFProDisplay',
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    ReviewCardView(),
+                    ReviewCardView(),
+                    ReviewCardView(),
                   ],
                 ),
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_900,
-                  fontSize: 16,
-                  fontFamily: 'SFProDisplay',
-                  fontWeight: FontWeight.w500,
+              ),
+              Container(
+                height: 8,
+                color: ZeplinColors.system_color_gray_100,
+              ),
+              Container(
+                width: double.infinity,
+                height: 90,
+                padding: const EdgeInsets.all(16),
+                color: Colors.white,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      ZeplinColors.system_color_primary_600,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      SvgAsset(Assets.cartShopping),
+                      SizedBox(width: 10),
+                      Text(
+                        'Захиалга өгөх',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
-          ),
-        ),
-        Container(
-          height: 8,
-          color: ZeplinColors.system_color_gray_100,
-        ),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(16),
-          color: Colors.white,
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                SvgAsset(Assets.cart),
-                SizedBox(width: 10),
-                Text(
-                  'Захиалга өгөх',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ],

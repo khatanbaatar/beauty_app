@@ -10,7 +10,7 @@ class ThemeConfig {
     colors: const FlexSchemeColor(
       primary: Color(0xffffffff),
       primaryContainer: Color(0xfff9fafb),
-      secondary: Color(0xff111928),
+      secondary: Color(0xff7f56d9),
     ),
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
     blendLevel: 20,
@@ -22,7 +22,7 @@ class ThemeConfig {
       elevatedButtonRadius: 10.0,
       outlinedButtonRadius: 5.0,
       textButtonSchemeColor: SchemeColor.secondary,
-      elevatedButtonSchemeColor: SchemeColor.primary,
+      elevatedButtonSchemeColor: SchemeColor.secondary,
       outlinedButtonSchemeColor: SchemeColor.secondaryContainer,
       inputDecoratorSchemeColor: SchemeColor.primaryContainer,
       tabBarIndicatorSchemeColor: SchemeColor.tertiaryContainer,

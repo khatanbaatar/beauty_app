@@ -1,9 +1,12 @@
 import 'package:beauty_app/app/components/common/views/back_button_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/common/views/circular_tab_indicator.dart';
+import 'package:beauty_app/app/components/detail/views/detail_designer_view.dart';
+import 'package:beauty_app/app/components/detail/views/detail_menu_view.dart';
 import 'package:beauty_app/app/components/detail/views/detail_review_view.dart';
 import 'package:beauty_app/app/components/detail/views/detail_home_view.dart';
 import 'package:beauty_app/app/components/detail/views/detail_product_view.dart';
+import 'package:beauty_app/app/components/detail/views/detail_style_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -379,13 +382,13 @@ class DetailView extends GetView<DetailController> {
           body: SafeArea(
             child: TabBarView(
               controller: controller.tabController,
-              children: [
-                const DetailHomeView(),
-                const DetailProductView(),
-                Container(),
-                Container(),
-                Container(),
-                const DetailReviewView(),
+              children: const [
+                DetailHomeView(),
+                DetailProductView(),
+                DetailMenuView(),
+                DetailDesignerView(),
+                DetailStyleView(),
+                DetailReviewView(),
               ],
             ),
           ),

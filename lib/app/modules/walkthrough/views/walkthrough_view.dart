@@ -129,7 +129,7 @@ class WalkthroughView extends GetView<WalkthroughController> {
                   // Get.toNamed(Routes.DETAIL);
                 },
                 child: const Text(
-                  "Тусламж?",
+                  "Алгасах",
                   style: TextStyle(color: Colors.black),
                 )).positioned(height: Get.height * .1, top: 40, right: 10)
             // if (index != 2)

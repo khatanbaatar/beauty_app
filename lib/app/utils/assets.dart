@@ -1,5 +1,7 @@
 class Assets {
   static const String hairSalon = "assets/images/img.png";
+  static const String salon = "assets/images/salon.jpg";
+  static const String homeGiftcard = "assets/images/giftcard.png";
   static const String sample = "assets/images/sample.jpg";
 
   static const String home = "assets/home.svg";

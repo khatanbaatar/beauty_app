@@ -8,12 +8,15 @@ class CardView extends GetView {
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
 
-  CardView(this.children, {this.mainAxisAlignment, this.hasShadow});
+  CardView(this.children, {super.key, this.mainAxisAlignment, this.hasShadow});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(Metrics.doubleBase),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Metrics.doubleBase,
+        vertical: 0,
+      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         // border: Border.all(color: ThemeConfig.colors.dgray200),
