@@ -20,9 +20,9 @@ class ReviewStarView extends GetView {
         return LinearGradient(
           begin: FractionalOffset.centerLeft,
           end: FractionalOffset.centerRight,
-          colors: [
+          colors: const[
             ZeplinColors.rating_color,
-            Colors.grey,
+            ZeplinColors.system_color_gray_300,
           ],
           stops: [stop, stop],
         ).createShader(bounds);
