@@ -23,6 +23,7 @@ dependencies:
   # utility
   card_swiper: ^2.0.3
   flutter_pagewise: ^2.0.4
+  flutter_secure_storage: ^5.0.2
   # share_plus: ^4.0.4
   timeago: ^3.2.2
 

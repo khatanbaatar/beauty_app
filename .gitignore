@@ -46,3 +46,5 @@ app.*.map.json
 .fvm/
 .vscode/
 pubspec.lock
+**/generated_plugin*
+**/GeneratedPlugin**

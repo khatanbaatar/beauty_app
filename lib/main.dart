@@ -6,17 +6,19 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
+import 'app/services/storage_service.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Get.putAsync(() => StorageService().init());
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white, // navigation bar color
     statusBarColor: Colors.white, // status bar color
     statusBarIconBrightness: Brightness.dark, // status bar icons' color
     systemNavigationBarIconBrightness:
         Brightness.dark, //navigation bar icons' color
-  ));
+  ));*/
   runApp(
     GetMaterialApp(
       title: "Beauty App",
