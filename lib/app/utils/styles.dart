@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Style {
-  static InputDecoration textFieldDecoraion = InputDecoration(
-    contentPadding: const EdgeInsets.only(
+  static InputDecoration textFieldDecoraion = const InputDecoration(
+    contentPadding: EdgeInsets.only(
       top: 10,
       left: 20,
     ),

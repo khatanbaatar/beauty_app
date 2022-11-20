@@ -111,7 +111,7 @@ class DetailView extends GetView<DetailController> {
                                   EdgeInsets.only(top: Get.statusBarHeight),
                               child: Row(
                                 children: [
-                                  const BackButtonView(),
+                                  const BackButtonView(icon: Assets.back),
                                   const Spacer(),
                                   IconButton(
                                     onPressed: () {},

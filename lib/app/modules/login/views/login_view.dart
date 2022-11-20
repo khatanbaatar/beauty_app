@@ -1,382 +1,308 @@
+import 'package:beauty_app/app/components/common/views/loading_view.dart';
+import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
+import 'package:beauty_app/app/routes/app_pages.dart';
+import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
+import 'package:beauty_app/app/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import '../controllers/login_controller.dart';
-import 'package:styled_widget/styled_widget.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: // Login
-          Stack(alignment: Alignment.center, children: [
-        // Top bar
-        Stack(children: [
-          // Time
-          PositionedDirectional(
-            top: 22,
-            start: 24,
-            child: Text("9:41",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_700,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Roboto",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14.0),
-                textAlign: TextAlign.left),
-          ),
-          // right icons
-          PositionedDirectional(
-            top: 25,
-            start: 342,
-            child: Stack(children: [
-              // Wifi
-              PositionedDirectional(
-                top: 0,
-                start: 0,
-                child: Stack(children: [
-                  // Path
-                  PositionedDirectional(
-                    top: 0,
-                    start: 0,
-                    child: Container(width: 17, height: 17),
-                  ),
-                  // Rectangle
-                  PositionedDirectional(
-                    top: 0,
-                    start: 0,
-                    child: Container(width: 17, height: 17),
-                  ),
-                  // Path
-                  PositionedDirectional(
-                    top: 0,
-                    start: 0,
-                    child: Container(width: 17, height: 17),
-                  ),
-                  // Path
-                  PositionedDirectional(
-                    top: 1.417,
-                    start: 0,
-                    child: Opacity(
-                      opacity: 0.10000000149011612,
-                      child: Container(
-                          width: 17,
-                          height: 14.167,
-                          decoration: BoxDecoration(
-                              color: ZeplinColors.system_color_gray_700)),
+      body: SafeArea(
+        child: Container(
+          color: ZeplinColors.system_color_gray_50,
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 0,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const SizedBox(height: 12),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(Assets.sampleLogo, width: 40, height: 40),
+                        const SizedBox(width: 16),
+                        const Text(
+                          'Beauty App',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_700,
+                            fontSize: 30,
+                            fontFamily: 'SFProDisplay',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ),
-                  )
-                ]),
-              ),
-              // Signal
-              PositionedDirectional(
-                top: 0,
-                start: 16,
-                child: Stack(children: [
-                  // Path
-                  PositionedDirectional(
-                    top: 0,
-                    start: 0,
-                    child: Container(width: 17, height: 17),
-                  ),
-                  // Path
-                  PositionedDirectional(
-                    top: 1.417,
-                    start: 1.417,
-                    child: Container(
-                        width: 14.167,
-                        height: 14.167,
-                        decoration: BoxDecoration(
-                            color: ZeplinColors.system_color_gray_700)),
-                  )
-                ]),
-              ),
-              // Battery
-              PositionedDirectional(
-                top: 1,
-                start: 38,
-                child: Stack(children: [
-                  // Base
-                  PositionedDirectional(
-                    top: 0,
-                    start: 0,
-                    child: Container(
-                        width: 8,
-                        height: 15,
-                        decoration:
-                            BoxDecoration(color: const Color(0x4d334155))),
-                  ),
-                  // Charge
-                  PositionedDirectional(
-                    top: 8,
-                    start: 0,
-                    child: Container(
-                        width: 8,
-                        height: 7,
-                        decoration: BoxDecoration(
-                            color: ZeplinColors.system_color_gray_700)),
-                  )
-                ]),
-              )
-            ]),
-          )
-        ]),
-        // Та бүртгэл үүсгээгүй бол? Бүртгүүлэх
-        RichText(
-            text: TextSpan(children: [
-          TextSpan(
-              style: const TextStyle(
-                  color: ZeplinColors.system_color_gray_500,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "SFProDisplay",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0),
-              text: "Та бүртгэл үүсгээгүй бол? "),
-          TextSpan(
-              style: const TextStyle(
-                  color: ZeplinColors.system_color_primary_700,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "SFProDisplay",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 14.0),
-              text: "Бүртгүүлэх")
-        ])).positioned(bottom: 50),
-        // - Эсвэл -
-        Text(" - Эсвэл -",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14.0),
-                textAlign: TextAlign.center)
-            .positioned(top: 596),
-        // Group 2
-        Stack(children: [
-          // Beauty App
-          PositionedDirectional(
-            top: 5,
-            start: 64,
-            child: Text("Beauty App",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_700,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 30.0),
-                textAlign: TextAlign.left),
-          ),
-          // Group 1
-          PositionedDirectional(
-            top: 0,
-            start: 0,
-            child: Stack(children: [
-              // Ellipse 8
-              PositionedDirectional(
-                top: 0,
-                start: 0,
-                child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(color: ZeplinColors.light_urple)),
-              ),
-              // heart-alt
-              PositionedDirectional(
-                top: 22.5,
-                start: 22.5,
-                child:
-                    // Icon
+                    const SizedBox(height: 91),
+                    const Text(
+                      'Нэвтрэх хэсэг',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontFamily: 'SFProDisplay',
+                      ),
+                    ),
+                    const SizedBox(height: 16),
                     Container(
-                        width: 22.313,
-                        height: 20.188,
-                        decoration: BoxDecoration(
-                            color: ZeplinColors.system_color_warning_400)),
-              )
-            ]),
-          )
-        ]).positioned(height: Get.height, width: Get.width, top: 144),
-        // Input field
-        Stack(children: [
-          // mail-alt-1
-          PositionedDirectional(
-            top: 14,
-            start: 16,
-            child:
-                // Icon
-                Container(
-                    width: 15,
-                    height: 11.667,
-                    decoration: BoxDecoration(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                            color: ZeplinColors.system_color_gray_400,
-                            width: 1.6699999570846558))),
-          ),
-          // Text
-          PositionedDirectional(
-            top: 12,
-            start: 44,
-            child: Text("И-мэйл",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0),
-                textAlign: TextAlign.left),
-          )
-        ]).positioned(height: Get.height, width: Get.width, top: 320),
-        // Input field
-        Stack(children: [
-          // lock-alt
-          PositionedDirectional(
-            top: 14,
-            start: 16,
-            child:
-                // Icon
-                Container(
-                    width: 13.333,
-                    height: 15,
-                    decoration: BoxDecoration(
+                          color: ZeplinColors.system_color_gray_300,
+                        ),
+                      ),
+                      height: 60,
+                      child: TextField(
+                        controller: controller.email,
+                        keyboardType: TextInputType.emailAddress,
+                        style: const TextStyle(
+                          color: ZeplinColors.system_color_primary_700,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        cursorColor: ZeplinColors.system_color_primary_400,
+                        decoration: Style.textFieldDecoraion.copyWith(
+                          hintText: 'И-мэйл',
+                          hintStyle: const TextStyle(
+                            color: ZeplinColors.system_color_primary_700,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          icon: Container(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: const SvgAsset(Assets.mail, width: 24),
+                          ),
+                          contentPadding: const EdgeInsets.only(left: 0),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                            color: ZeplinColors.system_color_gray_400,
-                            width: 1.6699999570846558))),
-          ),
-          // Text
-          PositionedDirectional(
-            top: 12,
-            start: 44,
-            child: Text("Нууц үг",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0),
-                textAlign: TextAlign.left),
-          ),
-          // Text
-          PositionedDirectional(
-            top: 12,
-            start: 200,
-            child: Text("Мартсан ?",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_primary_700,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0),
-                textAlign: TextAlign.right),
-          )
-        ]).positioned(height: Get.height, width: Get.width, top: 386),
-        // Нэвтрэх хэсэг
-        Text("Нэвтрэх хэсэг",
-                style: const TextStyle(
-                    color: ZeplinColors.black_white_black,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0),
-                textAlign: TextAlign.left)
-            .positioned(top: 280),
-        // Checkbox
-        Text("Хурууны хээгээр нэвтрэх",
-                style: const TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Inter",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14.0),
-                textAlign: TextAlign.left)
-            .positioned(top: 456),
-        // Button
-        Text("Нэвтрэх",
-                style: const TextStyle(
-                    color: ZeplinColors.black_white_white,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "SFProDisplay",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16.0),
-                textAlign: TextAlign.left)
-            .positioned(top: 516),
-        // Icon button
-        PositionedDirectional(
-          top: 516,
-          start: 340,
-          child:
-              // fingerprint
-              // Icon
-              Container(
-                  width: 15.095,
-                  height: 15.844,
-                  decoration: BoxDecoration(
-                      border: Border.all(
+                          color: ZeplinColors.system_color_gray_300,
+                        ),
+                      ),
+                      height: 60,
+                      child: TextField(
+                        controller: controller.password,
+                        obscureText: true,
+                        style: const TextStyle(
+                          color: ZeplinColors.system_color_primary_700,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        cursorColor: ZeplinColors.system_color_primary_400,
+                        decoration: Style.textFieldDecoraion.copyWith(
+                          hintText: 'Нууц үг',
+                          hintStyle: const TextStyle(
+                            color: ZeplinColors.system_color_primary_700,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          icon: Container(
+                            padding: const EdgeInsets.only(left: 12),
+                            child: const SvgAsset(Assets.lock, width: 24),
+                          ),
+                          contentPadding: const EdgeInsets.only(left: 0),
+                          suffix: TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Мартсан ?',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_primary_700,
+                                fontSize: 16,
+                                fontFamily: 'SFProDisplay',
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Obx(
+                      () => CheckboxListTile(
+                        controlAffinity: ListTileControlAffinity.leading,
+                        contentPadding: EdgeInsets.zero,
+                        title: const Text(
+                          'Хурууны хээгээр нэвтрэх',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_500,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        value: controller.isFingerprint.value,
+                        onChanged: controller.toggleFingerprint,
+                      ),
+                    ),
+                    const SizedBox(height: 42),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 50,
+                            child: ElevatedButton(
+                              onPressed: controller.login,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                  ZeplinColors.system_color_primary_600,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    'Нэвтрэх',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: ZeplinColors.system_color_gray_300,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const SvgAsset(Assets.fingerprint),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 32),
+                    const Center(
+                      child: Text(
+                        ' - эсвэл -',
+                        style: TextStyle(
                           color: ZeplinColors.system_color_gray_500,
-                          width: 2))),
+                          fontFamily: 'SFProDisplay',
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 32),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          side: MaterialStateProperty.all(const BorderSide(
+                            color: ZeplinColors.system_color_gray_300,
+                          )),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            SvgAsset(Assets.socialGoogle),
+                            SizedBox(width: 10),
+                            Text(
+                              'Sign in with Google',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_700,
+                                fontSize: 16,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: OutlinedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          side: MaterialStateProperty.all(const BorderSide(
+                            color: ZeplinColors.system_color_gray_300,
+                          )),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            SvgAsset(Assets.socialTwitter),
+                            SizedBox(width: 10),
+                            Text(
+                              'Sign in with Twitter',
+                              style: TextStyle(
+                                color: ZeplinColors.system_color_gray_700,
+                                fontSize: 16,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Та бүртгэл үүсгээгүй бол? ',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_500,
+                            fontFamily: 'SFProDisplay',
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => Get.toNamed(Routes.REGISTER),
+                          child: const Text(
+                            ' Бүртгүүлэх',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_primary_700,
+                              fontSize: 16,
+                              fontFamily: 'SFProDisplay',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              controller.obx(
+                (state) => Container(),
+                onLoading: LoadingView(),
+              ),
+            ],
+          ),
         ),
-        // Social button
-        PositionedDirectional(
-          top: 648,
-          start: 24,
-          child: Stack(children: [
-            // Social icons
-            PositionedDirectional(
-              top: 12,
-              start: 94,
-              child:
-                  // google logo
-                  Container(width: 19.6, height: 20),
-            ),
-            // Label
-            PositionedDirectional(
-              top: 10,
-              start: 122,
-              child: Text("Sign in with Google",
-                  style: const TextStyle(
-                      color: ZeplinColors.system_color_gray_700,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Inter",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16.0),
-                  textAlign: TextAlign.left),
-            )
-          ]),
-        ),
-        // Social button
-        PositionedDirectional(
-          top: 708,
-          start: 24,
-          child: Stack(children: [
-            // Social icons
-            PositionedDirectional(
-              top: 12,
-              start: 94.5,
-              child:
-                  // logomark
-                  Container(
-                      width: 20,
-                      height: 16.667,
-                      decoration:
-                          BoxDecoration(color: const Color(0xff1da1f2))),
-            ),
-            // Label
-            PositionedDirectional(
-              top: 10,
-              start: 122.5,
-              child: Text("Sign in with Twitter",
-                  style: const TextStyle(
-                      color: ZeplinColors.system_color_gray_700,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Inter",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16.0),
-                  textAlign: TextAlign.left),
-            )
-          ]),
-        )
-      ]),
+      ),
     );
   }
 }

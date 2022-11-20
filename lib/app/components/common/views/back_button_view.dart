@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class BackButtonView extends GetView {
   final String icon;
-  const BackButtonView({this.icon = Assets.back});
+  const BackButtonView({super.key, this.icon = Assets.backGray});
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,15 @@ class Assets {
   static const String salon = "assets/images/salon.jpg";
   static const String homeGiftcard = "assets/images/giftcard.png";
   static const String sample = "assets/images/sample.jpg";
+  static const String sampleLogo = "assets/images/logo.png";
+
+  static const String fingerprint = "assets/fingerprint.svg";
+  static const String lock = "assets/lock_alt.svg";
+  static const String mail = "assets/mail_alt_1.svg";
+  static const String socialGoogle = "assets/social_icons.svg";
+  static const String socialTwitter = "assets/social_icons(1).svg";
+  static const String help = "assets/help.svg";
+  static const String showObscure = "assets/outline_eye_alt.svg";
 
   static const String home = "assets/home.svg";
   static const String homeCalendar = "assets/calendar.svg";
@@ -24,6 +33,7 @@ class Assets {
   static const String starSharp = "assets/star_sharp.svg";
   static const String star = "assets/star_100.svg";
   static const String back = "assets/leading_icon.svg";
+  static const String backGray = "assets/leading_icon_gray.svg";
   static const String locationPin = "assets/location_pin.svg";
   static const String trailing = "assets/trailing_icon.svg";
   static const String bookmark = "assets/trailing_icon(1).svg";

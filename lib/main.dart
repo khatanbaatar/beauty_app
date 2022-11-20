@@ -1,3 +1,4 @@
+import 'package:beauty_app/app/services/auth_service.dart';
 import 'package:beauty_app/app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +12,8 @@ import 'app/services/storage_service.dart';
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => StorageService().init());
+  await Get.putAsync(() => AuthService().init());
+
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white, // navigation bar color
