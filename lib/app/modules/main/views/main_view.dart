@@ -1,6 +1,7 @@
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/modules/home/views/home_view.dart';
 import 'package:beauty_app/app/modules/near_me/views/near_me_view.dart';
+import 'package:beauty_app/app/modules/reserve/views/reserve_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class MainView extends GetView<MainController> {
             children: [
               const HomeView(),
               const NearMeView(),
+              // const ReserveView(),
               Container(),
               Container(),
             ],

@@ -12,6 +12,8 @@ class Assets {
   static const String socialTwitter = "assets/social_icons(1).svg";
   static const String help = "assets/help.svg";
   static const String showObscure = "assets/outline_eye_alt.svg";
+  static const String calendarGray = "assets/calendar_gray.svg";
+  static const String starGray = "assets/star_gray.svg";
 
   static const String home = "assets/home.svg";
   static const String homeCalendar = "assets/calendar.svg";

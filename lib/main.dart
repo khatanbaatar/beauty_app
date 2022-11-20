@@ -15,14 +15,14 @@ Future<void> main() async {
   await Get.putAsync(() => AuthService().init());
 
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.white, // navigation bar color
     statusBarColor: Colors.white, // status bar color
     statusBarIconBrightness: Brightness.dark, // status bar icons' color
     systemNavigationBarIconBrightness:
         Brightness.dark, //navigation bar icons' color
   ));
-  
+
   runApp(
     GetMaterialApp(
       title: "Beauty App",

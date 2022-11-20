@@ -225,36 +225,6 @@ class NearMeView extends GetView<NearMeController> {
     );
   }
 
-  Widget buildIcon(String assets, String label) {
-    return SizedBox(
-      height: 60,
-      child: Column(
-        children: [
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: ZeplinColors.system_color_primary_50,
-            ),
-            child: IconButton(
-              icon: SvgAsset(assets),
-              onPressed: () {},
-            ),
-          ),
-          Text(
-            label,
-            style: const TextStyle(
-              color: ZeplinColors.system_color_gray_500,
-              fontSize: 12,
-              fontFamily: 'SFProDisplay',
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget buildTab(int index, String name, RxInt ctIndex) {
     return Tab(
       child: Container(
