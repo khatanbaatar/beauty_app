@@ -29,6 +29,7 @@ class Assets {
   static const String gift = "assets/gift.svg";
   static const String more = "assets/more.svg";
   static const String searchAlt = "assets/search_alt.svg";
+  static const String palette = "assets/palette.svg";
 
   static const String starSharp = "assets/star_sharp.svg";
   static const String star = "assets/star_100.svg";

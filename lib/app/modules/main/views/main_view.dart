@@ -1,14 +1,8 @@
-import 'package:beauty_app/app/components/common/views/card_view.dart';
-import 'package:beauty_app/app/components/common/views/salon_card_view.dart';
-import 'package:beauty_app/app/components/common/views/salon_tile_view.dart';
-import 'package:beauty_app/app/components/common/views/search_input_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
-import 'package:beauty_app/app/components/review/views/review_star_view.dart';
-import 'package:beauty_app/app/modules/details/detail/views/detail_view.dart';
 import 'package:beauty_app/app/modules/home/views/home_view.dart';
+import 'package:beauty_app/app/modules/near_me/views/near_me_view.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,7 +27,7 @@ class MainView extends GetView<MainController> {
             onPageChanged: controller.changePage,
             children: [
               const HomeView(),
-              Container(),
+              const NearMeView(),
               Container(),
               Container(),
             ],

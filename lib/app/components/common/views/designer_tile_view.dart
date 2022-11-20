@@ -1,4 +1,3 @@
-import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class SalonTileView extends GetView {
+class DesignerTileView extends GetView {
   List<Widget> children = [];
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
@@ -36,7 +35,7 @@ class SalonTileView extends GetView {
                     },
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset(Assets.salon),
+                      child: Image.network("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hwVDS6hfp4Nwdc9HJImycQHaHa%26pid%3DApi&f=1&ipt=57d470ddd662119cd81188d43b7d51fc82bf054dfc9c07af89c5912af69a45e1&ipo=images"),
                     ),
                   ),
                 ),
@@ -124,9 +123,13 @@ class SalonTileView extends GetView {
                   ),
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const SvgAsset(Assets.bookmarkAlt),
+              const Text(
+                '35,000₮',
+                style: TextStyle(
+                  color: ZeplinColors.system_color_primary_600,
+                  fontFamily: 'SFProDisplay',
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),

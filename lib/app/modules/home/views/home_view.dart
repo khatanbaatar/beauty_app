@@ -27,9 +27,9 @@ class HomeView extends GetView<HomeController> {
           ),
           child: Row(
             children: [
-              SvgAsset(Assets.mapPin),
+              const SvgAsset(Assets.mapPin),
               Column(
-                children: [
+                children: const [
                   Text(
                     'Хаяг өөрчлөх',
                     style: TextStyle(
