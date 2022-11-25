@@ -41,6 +41,7 @@ class RegisterView extends GetView<RegisterController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const SizedBox(height: 30),
                 Container(
                   alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(
@@ -363,6 +364,7 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 30),
                 // const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

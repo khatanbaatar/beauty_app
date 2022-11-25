@@ -32,7 +32,7 @@ class SalonCardView extends GetView {
             onTap: () {
               Get.toNamed(Routes.DETAIL);
             },
-            child: Text(
+            child: const Text(
               'Matrix Salon, 1th khoroo, Chingeltei disrict',
               overflow: TextOverflow.clip,
               style: TextStyle(

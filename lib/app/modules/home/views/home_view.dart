@@ -207,6 +207,8 @@ class HomeView extends GetView<HomeController> {
               SalonCardView(),
               SalonCardView(),
               SalonCardView(),
+              SalonCardView(),
+              SalonCardView(),
             ],
           ),
         ),
