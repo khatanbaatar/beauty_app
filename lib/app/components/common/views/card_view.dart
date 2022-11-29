@@ -1,3 +1,4 @@
+import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class CardView extends GetView {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        // border: Border.all(color: ThemeConfig.colors.dgray200),
+        border: Border.all(color: ZeplinColors.system_color_gray_200),
         // color: ThemeConfig.colors.cardBackground,
         boxShadow: [
           if (hasShadow ?? false)

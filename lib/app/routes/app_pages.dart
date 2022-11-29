@@ -1,7 +1,7 @@
-import 'package:beauty_app/app/modules/details/detail/bindings/detail_binding.dart';
-import 'package:beauty_app/app/modules/details/detail/views/detail_view.dart';
 import 'package:get/get.dart';
 
+import '../modules/details/detail/bindings/detail_binding.dart';
+import '../modules/details/detail/views/detail_view.dart';
 import '../modules/help/bindings/help_binding.dart';
 import '../modules/help/views/help_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -12,6 +12,10 @@ import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/saved/bindings/saved_binding.dart';
+import '../modules/saved/views/saved_view.dart';
+import '../modules/settings/bindings/settings_binding.dart';
+import '../modules/settings/views/settings_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/walkthrough/bindings/walkthrough_binding.dart';
@@ -64,6 +68,16 @@ class AppPages {
       name: _Paths.DETAIL,
       page: () => const DetailView(),
       binding: DetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS,
+      page: () => const SettingsView(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SAVED,
+      page: () => const SavedView(),
+      binding: SavedBinding(),
     ),
   ];
 }

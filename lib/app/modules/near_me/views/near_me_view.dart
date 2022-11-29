@@ -1,5 +1,6 @@
 import 'package:beauty_app/app/components/common/views/designer_tile_view.dart';
 import 'package:beauty_app/app/components/common/views/salon_tile_view.dart';
+import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
@@ -22,7 +23,7 @@ class NearMeView extends GetView<NearMeController> {
         appBar: AppBar(
           title: Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 16,
+              horizontal: 0,
               vertical: 4,
             ),
             width: double.infinity,
@@ -56,7 +57,7 @@ class NearMeView extends GetView<NearMeController> {
                   icon: const SvgAsset(Assets.bell),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.SAVED),
                   icon: const SvgAsset(Assets.bookmarkAlt),
                 ),
               ],

@@ -36,7 +36,7 @@ class SalonTileView extends GetView {
                     },
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset(Assets.salon),
+                      child: Image.asset(Assets.salon, fit: BoxFit.fill,),
                     ),
                   ),
                 ),

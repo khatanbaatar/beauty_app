@@ -1,4 +1,7 @@
+import 'package:beauty_app/app/components/common/views/loading_view.dart';
 import 'package:beauty_app/app/components/common/views/reserve_item_view.dart';
+import 'package:beauty_app/app/routes/app_pages.dart';
+import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:get/get.dart';
 
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
@@ -22,13 +25,14 @@ class ReserveView extends GetView<ReserveController> {
         appBar: AppBar(
           title: Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 16,
+              horizontal: 0,
               vertical: 4,
             ),
             width: double.infinity,
             child: Row(
               children: [
                 const SvgAsset(Assets.calendarGray),
+                const SizedBox(width: 12),
                 const Text(
                   'Reserve',
                   style: TextStyle(
@@ -43,7 +47,7 @@ class ReserveView extends GetView<ReserveController> {
                   icon: const SvgAsset(Assets.bell),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.SAVED),
                   icon: const SvgAsset(Assets.bookmarkAlt),
                 ),
               ],
@@ -52,47 +56,56 @@ class ReserveView extends GetView<ReserveController> {
           leading: Container(),
           leadingWidth: 0,
         ),
-        body: SingleChildScrollView(
-          child:  Column(
-            children: [
-              const SizedBox(height: 8),
-              Container(
-                color: Colors.white,
-                child: Obx(
-                  () => TabBar(
-                    controller: controller.tabController,
-                    labelColor: ZeplinColors.system_color_gray_100,
-                    labelPadding: const EdgeInsets.symmetric(horizontal: 5),
-                    indicatorPadding: EdgeInsets.zero,
-                    indicator: const BoxDecoration(),
-                    isScrollable: true,
-                    tabs: <Widget>[
-                      buildTab(0, "All", controller.tabIndex),
-                      buildTab(1, "Upcoming", controller.tabIndex),
-                      buildTab(2, "Completed", controller.tabIndex),
-                      buildTab(3, "Cancelled", controller.tabIndex),
-                    ],
-                    unselectedLabelColor: ZeplinColors.system_color_gray_500,
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Container(
+                    height: 8,
+                    color: ZeplinColors.system_color_gray_100,
                   ),
-                ),
+                  Container(
+                    color: Colors.white,
+                    child: Obx(
+                      () => TabBar(
+                        controller: controller.tabController,
+                        labelColor: ZeplinColors.system_color_gray_100,
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 5),
+                        indicatorPadding: EdgeInsets.zero,
+                        indicator: const BoxDecoration(),
+                        isScrollable: true,
+                        tabs: <Widget>[
+                          buildTab(0, "All", controller.tabIndex),
+                          buildTab(1, "Upcoming", controller.tabIndex),
+                          buildTab(2, "Completed", controller.tabIndex),
+                          buildTab(3, "Cancelled", controller.tabIndex),
+                        ],
+                        unselectedLabelColor:
+                            ZeplinColors.system_color_gray_500,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Container(
+            ),
+            PagewiseSliverList(
+              pageLoadController: controller.pagewiseLoadController,
+              itemBuilder: (context, item, index) => Container(
+                color: Colors.white,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 4,
                 ),
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) => SizedBox(
-                    height: 100,
-                    // child: ReserveItemView(),
-                  ),
-                ),
+                child: ReserveItemView(type: index % 3),
               ),
-            ],
-          ),
+              noItemsFoundBuilder: (context) {
+                return Text("no.data".tr);
+              },
+              loadingBuilder: (context) => LoadingView(),
+              showRetry: false,
+            ),
+          ],
         ),
       ),
     );

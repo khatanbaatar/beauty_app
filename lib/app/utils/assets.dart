@@ -1,12 +1,17 @@
 class Assets {
+  static const String logo = "assets/logo.svg";
+
   static const String hairSalon = "assets/images/img.png";
   static const String salon = "assets/images/salon.jpg";
   static const String homeGiftcard = "assets/images/giftcard.png";
   static const String sample = "assets/images/sample.jpg";
   static const String sampleLogo = "assets/images/logo.png";
 
+  static const String xmark = "assets/circle_xmark.svg";
   static const String fingerprint = "assets/fingerprint.svg";
   static const String lock = "assets/lock_alt.svg";
+  static const String edit = "assets/edit.svg";
+  static const String goto = "assets/goto.svg";
   static const String mail = "assets/mail_alt_1.svg";
   static const String socialGoogle = "assets/social_icons.svg";
   static const String socialTwitter = "assets/social_icons(1).svg";
@@ -14,6 +19,17 @@ class Assets {
   static const String showObscure = "assets/outline_eye_alt.svg";
   static const String calendarGray = "assets/calendar_gray.svg";
   static const String starGray = "assets/star_gray.svg";
+
+  static const String checked = "assets/checked.svg";
+  static const String vibrate = "assets/vibrate.svg";
+  static const String update = "assets/update.svg";
+
+  static const String profile0 = "assets/trailing_icon_3.svg";
+  static const String profile1 = "assets/trailing_icon_3(1).svg";
+  static const String profile2 = "assets/trailing_icon_3(2).svg";
+  static const String profile3 = "assets/trailing_icon_3(3).svg";
+  static const String profile4 = "assets/trailing_icon_3(4).svg";
+  static const String profile5 = "assets/trailing_icon_3(5).svg";
 
   static const String home = "assets/home.svg";
   static const String homeCalendar = "assets/calendar.svg";

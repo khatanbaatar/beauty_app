@@ -1,3 +1,4 @@
+import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import 'package:beauty_app/app/components/common/views/salon_card_view.dart';
@@ -87,7 +88,7 @@ class HomeView extends GetView<HomeController> {
                 icon: const SvgAsset(Assets.bell),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => Get.toNamed(Routes.SAVED),
                 icon: const SvgAsset(Assets.bookmarkAlt),
               ),
             ],
