@@ -295,7 +295,9 @@ class HomeView extends GetView<HomeController> {
             ),
             child: IconButton(
               icon: SvgAsset(assets),
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routes.CATEGORY_LIST);
+              },
             ),
           ),
           Text(

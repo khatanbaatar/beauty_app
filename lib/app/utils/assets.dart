@@ -7,6 +7,7 @@ class Assets {
   static const String sample = "assets/images/sample.jpg";
   static const String sampleLogo = "assets/images/logo.png";
 
+  static const String shoppingBag = "assets/shop_bag.svg";
   static const String xmark = "assets/circle_xmark.svg";
   static const String fingerprint = "assets/fingerprint.svg";
   static const String lock = "assets/lock_alt.svg";

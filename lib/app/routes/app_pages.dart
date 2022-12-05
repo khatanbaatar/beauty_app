@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/category_detail/bindings/category_detail_binding.dart';
+import '../modules/category_detail/views/category_detail_view.dart';
+import '../modules/category_list/bindings/category_list_binding.dart';
+import '../modules/category_list/views/category_list_view.dart';
 import '../modules/details/detail/bindings/detail_binding.dart';
 import '../modules/details/detail/views/detail_view.dart';
 import '../modules/help/bindings/help_binding.dart';
@@ -78,6 +82,16 @@ class AppPages {
       name: _Paths.SAVED,
       page: () => const SavedView(),
       binding: SavedBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY_LIST,
+      page: () => const CategoryListView(),
+      binding: CategoryListBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY_DETAIL,
+      page: () => const CategoryDetailView(),
+      binding: CategoryDetailBinding(),
     ),
   ];
 }
