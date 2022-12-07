@@ -9,6 +9,8 @@ class Assets {
 
   static const String addFriendButton = "assets/add_friend.png";
 
+  static const String mapCheck = "assets/map_check.svg";
+  static const String location = "assets/location.svg";
   static const String mailOG = "assets/mail.svg";
   static const String message = "assets/message_circle_notification.svg";
 

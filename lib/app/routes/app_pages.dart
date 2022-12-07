@@ -24,6 +24,8 @@ import '../modules/help/bindings/help_binding.dart';
 import '../modules/help/views/help_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/location/bindings/location_binding.dart';
+import '../modules/location/views/location_view.dart';
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/more/invite_friend/bindings/invite_friend_binding.dart';
@@ -34,6 +36,8 @@ import '../modules/more/search_number/bindings/search_number_binding.dart';
 import '../modules/more/search_number/views/search_number_view.dart';
 import '../modules/more/terms/bindings/terms_binding.dart';
 import '../modules/more/terms/views/terms_view.dart';
+import '../modules/my_location/bindings/my_location_binding.dart';
+import '../modules/my_location/views/my_location_view.dart';
 import '../modules/saved/bindings/saved_binding.dart';
 import '../modules/saved/views/saved_view.dart';
 import '../modules/search/bindings/search_binding.dart';
@@ -162,6 +166,16 @@ class AppPages {
       name: _Paths.SEARCH_NUMBER,
       page: () => const SearchNumberView(),
       binding: SearchNumberBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOCATION,
+      page: () => const LocationView(),
+      binding: LocationBinding(),
+    ),
+    GetPage(
+      name: _Paths.MY_LOCATION,
+      page: () => const MyLocationView(),
+      binding: MyLocationBinding(),
     ),
   ];
 }

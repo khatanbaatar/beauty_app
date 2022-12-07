@@ -71,7 +71,7 @@ class ProfileView extends GetView<ProfileController> {
                   ),
                   trailing: IconButton(
                     icon: SvgAsset(Assets.edit),
-                    onPressed: () {},
+                    onPressed: () => Get.toNamed(Routes.PROFILE_DETAIL),
                   ),
                 ),
                 const SizedBox(height: 16),

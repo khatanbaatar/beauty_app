@@ -15,77 +15,80 @@ class SalonCardView extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    return CardView([
-      GestureDetector(
-        onTap: () {
-          Get.toNamed(Routes.DETAIL);
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image.asset(Assets.sample),
+    return CardView(
+      [
+        GestureDetector(
+          onTap: () {
+            Get.toNamed(Routes.DETAIL);
+          },
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(Assets.sample),
+          ),
         ),
-      ),
-      const SizedBox(height: 4),
-      Row(children: [
-        Expanded(
-          child: GestureDetector(
-            onTap: () {
-              Get.toNamed(Routes.DETAIL);
-            },
-            child: const Text(
-              'Matrix Salon, 1th khoroo, Chingeltei disrict',
-              overflow: TextOverflow.clip,
-              style: TextStyle(
-                color: ZeplinColors.system_color_gray_900,
-                fontFamily: 'SFProDisplay',
-                // fontSize: 14,
+        const SizedBox(height: 4),
+        Row(children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.DETAIL);
+              },
+              child: const Text(
+                'Matrix Salon, 1th khoroo, Chingeltei disrict',
+                overflow: TextOverflow.clip,
+                style: TextStyle(
+                  color: ZeplinColors.system_color_gray_900,
+                  fontFamily: 'SFProDisplay',
+                  // fontSize: 14,
+                ),
               ),
             ),
           ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const SvgAsset(Assets.bookmarkAlt),
-        ),
-      ]),
-      Row(children: const [
-        ReviewStarView(),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '4.8 (125)  ',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_500,
-                  fontSize: 12,
-                  fontFamily: 'SFProDisplay',
-                ),
-              ),
-              TextSpan(
-                text: '•',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_400,
-                  fontSize: 12,
-                  fontFamily: 'SFProDisplay',
-                ),
-              ),
-              TextSpan(
-                text: '  10:00~21:30',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_500,
-                  fontSize: 12,
-                  fontFamily: 'SFProDisplay',
-                ),
-              ),
-            ],
+          IconButton(
+            onPressed: () {},
+            icon: const SvgAsset(Assets.bookmarkAlt),
           ),
-          style: TextStyle(
-            color: ZeplinColors.system_color_gray_500,
-            fontSize: 12,
-            fontFamily: 'SFProDisplay',
+        ]),
+        Row(children: const [
+          ReviewStarView(),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: '4.8 (125)  ',
+                  style: TextStyle(
+                    color: ZeplinColors.system_color_gray_500,
+                    fontSize: 12,
+                    fontFamily: 'SFProDisplay',
+                  ),
+                ),
+                TextSpan(
+                  text: '•',
+                  style: TextStyle(
+                    color: ZeplinColors.system_color_gray_400,
+                    fontSize: 12,
+                    fontFamily: 'SFProDisplay',
+                  ),
+                ),
+                TextSpan(
+                  text: '  10:00~21:30',
+                  style: TextStyle(
+                    color: ZeplinColors.system_color_gray_500,
+                    fontSize: 12,
+                    fontFamily: 'SFProDisplay',
+                  ),
+                ),
+              ],
+            ),
+            style: TextStyle(
+              color: ZeplinColors.system_color_gray_500,
+              fontSize: 12,
+              fontFamily: 'SFProDisplay',
+            ),
           ),
-        ),
-      ]),
-    ]);
+        ]),
+      ],
+      horizontalMargin: 8,
+    );
   }
 }

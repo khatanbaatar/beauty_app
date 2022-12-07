@@ -6,14 +6,22 @@ import 'package:beauty_app/app/utils/styles.dart';
 
 class CardView extends GetView {
   List<Widget> children = [];
+  double? horizontalMargin;
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
 
-  CardView(this.children, {super.key, this.mainAxisAlignment, this.hasShadow});
+  CardView(
+    this.children, {
+    super.key,
+    this.mainAxisAlignment,
+    this.hasShadow,
+    this.horizontalMargin,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 0.0),
       padding: const EdgeInsets.symmetric(
         horizontal: Metrics.doubleBase,
         vertical: 0,

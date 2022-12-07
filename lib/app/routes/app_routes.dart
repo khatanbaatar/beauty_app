@@ -25,6 +25,8 @@ abstract class Routes {
   static const INVITE_FRIEND = _Paths.INVITE_FRIEND;
   static const TERMS = _Paths.TERMS;
   static const SEARCH_NUMBER = _Paths.SEARCH_NUMBER;
+  static const LOCATION = _Paths.LOCATION;
+  static const MY_LOCATION = _Paths.MY_LOCATION;
 }
 
 abstract class _Paths {
@@ -51,4 +53,6 @@ abstract class _Paths {
   static const INVITE_FRIEND = '/invite-friend';
   static const TERMS = '/terms';
   static const SEARCH_NUMBER = '/search-number';
+  static const LOCATION = '/location';
+  static const MY_LOCATION = '/my-location';
 }

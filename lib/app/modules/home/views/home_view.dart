@@ -29,17 +29,20 @@ class HomeView extends GetView<HomeController> {
           child: Row(
             children: [
               const SvgAsset(Assets.mapPin),
-              Column(
-                children: const [
-                  Text(
-                    'Хаяг өөрчлөх',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_500,
-                      fontSize: 10,
-                      fontFamily: 'SFProDisplay',
+              GestureDetector(
+                onTap: () => Get.toNamed(Routes.MY_LOCATION),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Хаяг өөрчлөх',
+                      style: TextStyle(
+                        color: ZeplinColors.system_color_gray_500,
+                        fontSize: 10,
+                        fontFamily: 'SFProDisplay',
+                      ),
                     ),
-                  ),
-                  /*Container(
+                    /*Container(
                             height: 10,
                             child: DropdownButton<String>(
                               focusColor: Colors.white,
@@ -72,17 +75,18 @@ class HomeView extends GetView<HomeController> {
                               onChanged: (value) {},
                             ),
                           ),*/
-                  Text(
-                    ' 1th khoroo, chingeltei...',
-                    style: TextStyle(
-                      color: ZeplinColors.system_color_gray_900,
-                      fontSize: 12,
-                      fontFamily: 'SFProDisplay',
+                    Text(
+                      ' 1th khoroo, chingeltei...',
+                      style: TextStyle(
+                        color: ZeplinColors.system_color_gray_900,
+                        fontSize: 12,
+                        fontFamily: 'SFProDisplay',
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 onPressed: () {},
                 icon: const SvgAsset(Assets.bell),
@@ -182,7 +186,7 @@ class HomeView extends GetView<HomeController> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Таны байршилд ойрхон',
                 style: TextStyle(
                   color: ZeplinColors.system_color_gray_900,
@@ -192,8 +196,8 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
-                child: Text(
+                onPressed: () => Get.toNamed(Routes.LOCATION),
+                child: const Text(
                   'Бүгд >',
                   style: TextStyle(
                     color: ZeplinColors.system_color_gray_500,
