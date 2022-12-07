@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
 
-import '../modules/category_detail/bindings/category_detail_binding.dart';
-import '../modules/category_detail/views/category_detail_view.dart';
 import '../modules/category_list/bindings/category_list_binding.dart';
 import '../modules/category_list/views/category_list_view.dart';
+import '../modules/details/category_detail/bindings/category_detail_binding.dart';
+import '../modules/details/category_detail/views/category_detail_view.dart';
 import '../modules/details/detail/bindings/detail_binding.dart';
 import '../modules/details/detail/views/detail_view.dart';
+import '../modules/details/product_detail/bindings/product_detail_binding.dart';
+import '../modules/details/product_detail/views/product_detail_view.dart';
 import '../modules/help/bindings/help_binding.dart';
 import '../modules/help/views/help_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -18,6 +20,8 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/saved/bindings/saved_binding.dart';
 import '../modules/saved/views/saved_view.dart';
+import '../modules/search/bindings/search_binding.dart';
+import '../modules/search/views/search_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -92,6 +96,16 @@ class AppPages {
       name: _Paths.CATEGORY_DETAIL,
       page: () => const CategoryDetailView(),
       binding: CategoryDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCT_DETAIL,
+      page: () => const ProductDetailView(),
+      binding: ProductDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH,
+      page: () => const SearchView(),
+      binding: SearchBinding(),
     ),
   ];
 }

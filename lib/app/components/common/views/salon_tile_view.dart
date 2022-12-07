@@ -21,7 +21,7 @@ class SalonTileView extends GetView {
         child: Container(
           // aspectRatio: 2.3867,
           width: double.infinity,
-          height: 130,
+          height: 80,
           color: Colors.white,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,

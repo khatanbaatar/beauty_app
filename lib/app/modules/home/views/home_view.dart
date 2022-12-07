@@ -103,10 +103,17 @@ class HomeView extends GetView<HomeController> {
           child: Row(
             children: [
               Expanded(
-                child: SearchInputView(leading: true),
+                child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.SEARCH);
+                  },
+                  child: SearchInputView(leading: true, enabled: false),
+                ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(Routes.SEARCH);
+                },
                 icon: const SvgAsset(Assets.filter),
               ),
             ],

@@ -100,7 +100,9 @@ class CategoryDetailView extends GetView<CategoryDetailController> {
               child: Column(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(Routes.PRODUCT_DETAIL);
+                    },
                     child: Stack(
                       children: [
                         Image.asset(Assets.sample),

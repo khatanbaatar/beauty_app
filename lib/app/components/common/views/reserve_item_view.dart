@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:beauty_app/app/components/common/views/add_review_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
@@ -212,7 +213,7 @@ class ReserveItemView extends GetView {
           const SizedBox(height: 4),
           if (type == 1)
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () => _review(context),
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
@@ -308,8 +309,9 @@ class ReserveItemView extends GetView {
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
             child: Material(
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16),
+              ),
               // color: Colors.transparent,
               child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -455,6 +457,28 @@ class ReserveItemView extends GetView {
           ),
         );
       },
+    );
+  }
+
+  void _review(context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white.withOpacity(0.6),
+      builder: (context) {
+        return AddReviewView();
+      },
+    );
+  }
+
+  Widget star(int num) {
+    return GestureDetector(
+      onTap: () => controller.rate(num),
+      onHorizontalDragStart: (a) => controller.swiperRateStart(a, num),
+      onHorizontalDragUpdate: controller.swiperRate,
+      child: ReviewStarView(
+        size: 20,
+        stop: (controller.rating - num + 1).toDouble(),
+      ),
     );
   }
 }
