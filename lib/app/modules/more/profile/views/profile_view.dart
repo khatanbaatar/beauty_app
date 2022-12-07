@@ -90,7 +90,7 @@ class ProfileView extends GetView<ProfileController> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.PROFILE_DETAIL),
                       trailing: const SvgAsset(Assets.goto),
                     ),
                     ListTile(
@@ -105,7 +105,7 @@ class ProfileView extends GetView<ProfileController> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.INVITE_FRIEND),
                       trailing: const SvgAsset(Assets.goto),
                     ),
                     ListTile(
@@ -141,7 +141,7 @@ class ProfileView extends GetView<ProfileController> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
                       trailing: const SvgAsset(Assets.goto),
                     ),
                     ListTile(
@@ -175,7 +175,7 @@ class ProfileView extends GetView<ProfileController> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.TERMS),
                       trailing: const SvgAsset(Assets.goto),
                     ),
                   ]),

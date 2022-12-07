@@ -17,6 +17,14 @@ abstract class Routes {
   static const CATEGORY_DETAIL = _Paths.CATEGORY_DETAIL;
   static const PRODUCT_DETAIL = _Paths.PRODUCT_DETAIL;
   static const SEARCH = _Paths.SEARCH;
+  static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
+  static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
+  static const VERIFICATION = _Paths.VERIFICATION;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
+  static const PROFILE_DETAIL = _Paths.PROFILE_DETAIL;
+  static const INVITE_FRIEND = _Paths.INVITE_FRIEND;
+  static const TERMS = _Paths.TERMS;
+  static const SEARCH_NUMBER = _Paths.SEARCH_NUMBER;
 }
 
 abstract class _Paths {
@@ -35,4 +43,12 @@ abstract class _Paths {
   static const CATEGORY_DETAIL = '/category-detail';
   static const PRODUCT_DETAIL = '/product-detail';
   static const SEARCH = '/search';
+  static const FORGOT_PASSWORD = '/forgot-password';
+  static const RESET_PASSWORD = '/reset-password';
+  static const VERIFICATION = '/verification';
+  static const CHANGE_PASSWORD = '/change-password';
+  static const PROFILE_DETAIL = '/profile-detail';
+  static const INVITE_FRIEND = '/invite-friend';
+  static const TERMS = '/terms';
+  static const SEARCH_NUMBER = '/search-number';
 }

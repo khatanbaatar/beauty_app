@@ -7,6 +7,11 @@ class Assets {
   static const String sample = "assets/images/sample.jpg";
   static const String sampleLogo = "assets/images/logo.png";
 
+  static const String addFriendButton = "assets/add_friend.png";
+
+  static const String mailOG = "assets/mail.svg";
+  static const String message = "assets/message_circle_notification.svg";
+
   static const String shoppingBag = "assets/shop_bag.svg";
   static const String xmark = "assets/circle_xmark.svg";
   static const String fingerprint = "assets/fingerprint.svg";

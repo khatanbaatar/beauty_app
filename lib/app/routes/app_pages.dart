@@ -1,5 +1,17 @@
 import 'package:get/get.dart';
 
+import '../modules/auth/change_password/bindings/change_password_binding.dart';
+import '../modules/auth/change_password/views/change_password_view.dart';
+import '../modules/auth/forgot_password/bindings/forgot_password_binding.dart';
+import '../modules/auth/forgot_password/views/forgot_password_view.dart';
+import '../modules/auth/login/bindings/login_binding.dart';
+import '../modules/auth/login/views/login_view.dart';
+import '../modules/auth/register/bindings/register_binding.dart';
+import '../modules/auth/register/views/register_view.dart';
+import '../modules/auth/reset_password/bindings/reset_password_binding.dart';
+import '../modules/auth/reset_password/views/reset_password_view.dart';
+import '../modules/auth/verification/bindings/verification_binding.dart';
+import '../modules/auth/verification/views/verification_view.dart';
 import '../modules/category_list/bindings/category_list_binding.dart';
 import '../modules/category_list/views/category_list_view.dart';
 import '../modules/details/category_detail/bindings/category_detail_binding.dart';
@@ -12,12 +24,16 @@ import '../modules/help/bindings/help_binding.dart';
 import '../modules/help/views/help_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
+import '../modules/more/invite_friend/bindings/invite_friend_binding.dart';
+import '../modules/more/invite_friend/views/invite_friend_view.dart';
+import '../modules/more/profile_detail/bindings/profile_detail_binding.dart';
+import '../modules/more/profile_detail/views/profile_detail_view.dart';
+import '../modules/more/search_number/bindings/search_number_binding.dart';
+import '../modules/more/search_number/views/search_number_view.dart';
+import '../modules/more/terms/bindings/terms_binding.dart';
+import '../modules/more/terms/views/terms_view.dart';
 import '../modules/saved/bindings/saved_binding.dart';
 import '../modules/saved/views/saved_view.dart';
 import '../modules/search/bindings/search_binding.dart';
@@ -106,6 +122,46 @@ class AppPages {
       name: _Paths.SEARCH,
       page: () => const SearchView(),
       binding: SearchBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => const ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET_PASSWORD,
+      page: () => const ResetPasswordView(),
+      binding: ResetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFICATION,
+      page: () => const VerificationView(),
+      binding: VerificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_PASSWORD,
+      page: () => const ChangePasswordView(),
+      binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_DETAIL,
+      page: () => const ProfileDetailView(),
+      binding: ProfileDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.INVITE_FRIEND,
+      page: () => const InviteFriendView(),
+      binding: InviteFriendBinding(),
+    ),
+    GetPage(
+      name: _Paths.TERMS,
+      page: () => const TermsView(),
+      binding: TermsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH_NUMBER,
+      page: () => const SearchNumberView(),
+      binding: SearchNumberBinding(),
     ),
   ];
 }
