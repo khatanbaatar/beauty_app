@@ -3,6 +3,7 @@ import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/common/views/circular_tab_indicator.dart';
 import 'package:beauty_app/app/components/detail/views/detail_review_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
+import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -494,7 +495,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                             padding: const EdgeInsets.all(16),
                             color: Colors.white,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () => Get.toNamed(Routes.RESERVE_EDIT),
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(

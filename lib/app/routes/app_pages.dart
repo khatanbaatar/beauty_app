@@ -38,6 +38,12 @@ import '../modules/more/terms/bindings/terms_binding.dart';
 import '../modules/more/terms/views/terms_view.dart';
 import '../modules/my_location/bindings/my_location_binding.dart';
 import '../modules/my_location/views/my_location_view.dart';
+import '../modules/payment/payment_method/bindings/payment_method_binding.dart';
+import '../modules/payment/payment_method/views/payment_method_view.dart';
+import '../modules/payment/payment_summary/bindings/payment_summary_binding.dart';
+import '../modules/payment/payment_summary/views/payment_summary_view.dart';
+import '../modules/payment/reserve_edit/bindings/reserve_edit_binding.dart';
+import '../modules/payment/reserve_edit/views/reserve_edit_view.dart';
 import '../modules/saved/bindings/saved_binding.dart';
 import '../modules/saved/views/saved_view.dart';
 import '../modules/search/bindings/search_binding.dart';
@@ -176,6 +182,21 @@ class AppPages {
       name: _Paths.MY_LOCATION,
       page: () => const MyLocationView(),
       binding: MyLocationBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESERVE_EDIT,
+      page: () => const ReserveEditView(),
+      binding: ReserveEditBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_METHOD,
+      page: () => const PaymentMethodView(),
+      binding: PaymentMethodBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_SUMMARY,
+      page: () => const PaymentSummaryView(),
+      binding: PaymentSummaryBinding(),
     ),
   ];
 }

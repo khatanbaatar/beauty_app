@@ -28,6 +28,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   pinput: ^2.2.16
   # share_plus: ^4.0.4
+  table_calendar: ^3.0.8
   timeago: ^3.2.2
 
 dev_dependencies: 

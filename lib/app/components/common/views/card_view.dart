@@ -6,6 +6,7 @@ import 'package:beauty_app/app/utils/styles.dart';
 
 class CardView extends GetView {
   List<Widget> children = [];
+  Color? color;
   double? horizontalMargin;
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
@@ -13,6 +14,7 @@ class CardView extends GetView {
   CardView(
     this.children, {
     super.key,
+    this.color,
     this.mainAxisAlignment,
     this.hasShadow,
     this.horizontalMargin,
@@ -29,7 +31,7 @@ class CardView extends GetView {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: ZeplinColors.system_color_gray_200),
-        // color: ThemeConfig.colors.cardBackground,
+        color: color ?? Colors.transparent,
         boxShadow: [
           if (hasShadow ?? false)
             BoxShadow(

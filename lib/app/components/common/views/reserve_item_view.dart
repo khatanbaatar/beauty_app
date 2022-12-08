@@ -268,7 +268,7 @@ class ReserveItemView extends GetView {
                 const SizedBox(width: 4),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.toNamed(Routes.RESERVE_EDIT),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                         ZeplinColors.system_color_primary_600,

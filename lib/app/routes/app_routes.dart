@@ -27,6 +27,10 @@ abstract class Routes {
   static const SEARCH_NUMBER = _Paths.SEARCH_NUMBER;
   static const LOCATION = _Paths.LOCATION;
   static const MY_LOCATION = _Paths.MY_LOCATION;
+  static const RESERVE_EDIT = _Paths.RESERVE_EDIT;
+  static const PAYMENT_TYPE = _Paths.PAYMENT_TYPE;
+  static const PAYMENT_METHOD = _Paths.PAYMENT_METHOD;
+  static const PAYMENT_SUMMARY = _Paths.PAYMENT_SUMMARY;
 }
 
 abstract class _Paths {
@@ -55,4 +59,8 @@ abstract class _Paths {
   static const SEARCH_NUMBER = '/search-number';
   static const LOCATION = '/location';
   static const MY_LOCATION = '/my-location';
+  static const RESERVE_EDIT = '/reserve-edit';
+  static const PAYMENT_TYPE = '/payment-type';
+  static const PAYMENT_METHOD = '/payment-method';
+  static const PAYMENT_SUMMARY = '/payment-summary';
 }

@@ -4,6 +4,7 @@ import 'package:beauty_app/app/components/detail/views/detail_designer_item_view
 import 'package:beauty_app/app/components/detail/views/detail_menu_item_view.dart';
 import 'package:beauty_app/app/components/detail/controllers/detail_home_controller.dart';
 import 'package:beauty_app/app/components/review/views/review_card_view.dart';
+import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:flutter/material.dart';
@@ -337,7 +338,7 @@ class DetailHomeView extends GetView<DetailHomeController> {
                 padding: const EdgeInsets.all(16),
                 color: Colors.white,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.RESERVE_EDIT),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
                       ZeplinColors.system_color_primary_600,
