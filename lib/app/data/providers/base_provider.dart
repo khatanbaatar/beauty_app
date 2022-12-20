@@ -11,7 +11,7 @@ class BaseProvider<T> extends GetConnect {
   BaseProvider(String endpoint) {
     this.endpoint = ApiConstants.baseUrl + endpoint;
     // httpClient.baseUrl = ApiConstants.baseUrl;
-    httpClient.addAuthenticator(authInterceptor);
+    httpClient.addRequestModifier(authInterceptor);
   }
 
   init() {
@@ -21,7 +21,7 @@ class BaseProvider<T> extends GetConnect {
   @override
   void onInit() {
     // httpClient.baseUrl = ApiConstants.baseUrl;
-    httpClient.addAuthenticator(authInterceptor);
+    httpClient.addRequestModifier(authInterceptor);
   }
 
   Future<Response> getItemResp(int id) async {
@@ -95,7 +95,7 @@ class BaseProvider<T> extends GetConnect {
     return resp;
   }
 
-  Future<Response<T>> putResp(T item, int id) async {
+  Future<Response<T>> putResp(T item, num id) async {
     print("PUT $endpoint: " + item.toString());
     Response<T> resp = await put("$endpoint/$id", item);
     print("PUT $endpoint: " + resp.body.toString());

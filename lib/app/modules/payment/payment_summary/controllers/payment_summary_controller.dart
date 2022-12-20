@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 class PaymentSummaryController extends GetxController with StateMixin {
-
   @override
   void onReady() {
     super.onReady();

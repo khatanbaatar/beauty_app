@@ -23,14 +23,14 @@ class WalkthroughView extends GetView<WalkthroughController> {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (c, o) => Scaffold(
-        appBar: AppBar(
+        /*appBar: AppBar(
           backgroundColor: ZeplinColors.system_color_gray_50,
           elevation: 0,
           toolbarHeight: 0,
           systemOverlayStyle: const SystemUiOverlayStyle(
               statusBarColor: ZeplinColors.system_color_gray_50,
               statusBarIconBrightness: Brightness.dark),
-        ),
+        ),*/
         body: Stack(
           alignment: Alignment.bottomCenter,
           children: [

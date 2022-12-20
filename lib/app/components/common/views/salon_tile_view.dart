@@ -1,5 +1,6 @@
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
+import 'package:beauty_app/app/data/models/organization/organization.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -8,9 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SalonTileView extends GetView {
+  Organization? organization;
   List<Widget> children = [];
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
+
+  SalonTileView({super.key, this.organization});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,10 @@ class SalonTileView extends GetView {
                     },
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset(Assets.salon, fit: BoxFit.fill,),
+                      child: Image.asset(
+                        Assets.salon,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
@@ -48,8 +55,8 @@ class SalonTileView extends GetView {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Matrix Salon',
+                      Text(
+                        organization?.name ?? 'Matrix Salon',
                         style: TextStyle(
                           color: ZeplinColors.system_color_gray_900,
                           fontFamily: 'SFProDisplay',
@@ -65,8 +72,8 @@ class SalonTileView extends GetView {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                '1th khoroo, Chingeltei disrict',
+                              Text(
+                                '${organization?.aimag?.cdNm} ${organization?.soum?.cdNm} ',
                                 style: TextStyle(
                                   color: ZeplinColors.system_color_gray_500,
                                   fontSize: 12,

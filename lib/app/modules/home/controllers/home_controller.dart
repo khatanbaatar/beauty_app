@@ -1,3 +1,6 @@
+import 'package:beauty_app/app/data/models/organization/organization.dart';
+import 'package:beauty_app/app/data/models/response_model.dart';
+import 'package:beauty_app/app/data/providers/organization_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -14,22 +17,26 @@ class HomeController extends GetxController
   PageController nearbyController = PageController(
     viewportFraction: viewportFraction,
   );
+  List<Organization> organizations = [];
+  
+  OrganizationProvider organizationProvider = OrganizationProvider();
 
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
-    initialization();
     tabController = TabController(length: 4, vsync: this);
     tabController.addListener(() {
       tabIndex.value = tabController.index;
+      getData();
     });
+    getData();
   }
 
   @override
   void onReady() {
     super.onReady();
-    initialization();
+    getData();
   }
 
   @override
@@ -37,15 +44,14 @@ class HomeController extends GetxController
     super.onClose();
   }
 
-  void initialization() async {
-    print('ready in 3...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('ready in 2...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('ready in 1...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('go!');
-    FlutterNativeSplash.remove();
+  void getData() async {
+    organizationProvider.setFilter(
+      filterField: "typeId",
+      filterValue: tabController.index
+    );
+    ResponseModel<Organization> resp = await organizationProvider.postList();
+    organizations = resp.data ?? [];
+    update();
   }
 
   void increment() => count.value++;

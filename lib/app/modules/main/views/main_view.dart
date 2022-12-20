@@ -27,7 +27,7 @@ class MainView extends GetView<MainController> {
             // physics: NeverScrollableScrollPhysics(),
             controller: controller.pageController,
             onPageChanged: controller.changePage,
-            children: const[
+            children: const [
               HomeView(),
               NearMeView(),
               ReserveView(),

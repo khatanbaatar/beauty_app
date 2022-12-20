@@ -134,7 +134,8 @@ class AddReviewView extends GetView<AddReviewController> {
                 },
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 // aspectRatio: 2.3867,
                 width: double.infinity,
                 decoration: BoxDecoration(

@@ -7,7 +7,6 @@ const double viewportFraction = 0.553846153846;
 
 class ReserveController extends GetxController
     with GetTickerProviderStateMixin {
-
   late TabController tabController;
   RxInt tabIndex = 0.obs;
 

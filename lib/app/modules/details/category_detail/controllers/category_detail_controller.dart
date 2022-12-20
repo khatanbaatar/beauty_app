@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 
 class CategoryDetailController extends GetxController
     with GetTickerProviderStateMixin {
-
   late TabController tabController;
   RxInt tabIndex = 0.obs;
 

@@ -63,7 +63,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                                             .system_color_primary_600,
                                         width: 2,
                                       )
-                                    : Border.all(color: ZeplinColors.system_color_gray_200),
+                                    : Border.all(
+                                        color:
+                                            ZeplinColors.system_color_gray_200),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: OutlinedButton(
@@ -129,7 +131,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                                             .system_color_primary_600,
                                         width: 2,
                                       )
-                                    : Border.all(color: ZeplinColors.system_color_gray_200),
+                                    : Border.all(
+                                        color:
+                                            ZeplinColors.system_color_gray_200),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: OutlinedButton(

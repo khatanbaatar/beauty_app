@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 
 const double viewportFraction = 0.553846153846;
 
-class NearMeController extends GetxController
-    with GetTickerProviderStateMixin {
-
+class NearMeController extends GetxController with GetTickerProviderStateMixin {
   late TabController tabController;
   late TabController tab1Controller;
   late TabController tab2Controller;
@@ -29,5 +27,4 @@ class NearMeController extends GetxController
       tab2Index.value = tab2Controller.index;
     });
   }
-
 }

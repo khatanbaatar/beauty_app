@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:beauty_app/app/data/models/organization/organization.dart';
 import 'package:beauty_app/app/data/models/review.dart';
 import 'package:beauty_app/app/data/models/user.dart';
 
@@ -44,6 +45,9 @@ class ResponseModel<T> {
       }
       if (T == Review) {
         data?.add(Review.fromJson(v) as T);
+      }
+      if (T == Organization) {
+        data?.add(Organization.fromJson(v) as T);
       }
     });
     pageable =

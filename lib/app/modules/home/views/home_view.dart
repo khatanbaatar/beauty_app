@@ -20,29 +20,33 @@ class HomeView extends GetView<HomeController> {
       () => HomeController(),
     );
     return SingleChildScrollView(
-      child: Column(children: [
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 4,
-          ),
-          child: Row(
-            children: [
-              const SvgAsset(Assets.mapPin),
-              GestureDetector(
-                onTap: () => Get.toNamed(Routes.MY_LOCATION),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Хаяг өөрчлөх',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_500,
-                        fontSize: 10,
-                        fontFamily: 'SFProDisplay',
-                      ),
-                    ),
-                    /*Container(
+      child: GetBuilder<HomeController>(
+          init: HomeController(),
+          initState: (_) {},
+          builder: (controller) {
+            return Column(children: [
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: Row(
+                  children: [
+                    const SvgAsset(Assets.mapPin),
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.MY_LOCATION),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Хаяг өөрчлөх',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_gray_500,
+                              fontSize: 10,
+                              fontFamily: 'SFProDisplay',
+                            ),
+                          ),
+                          /*Container(
                             height: 10,
                             child: DropdownButton<String>(
                               focusColor: Colors.white,
@@ -75,220 +79,222 @@ class HomeView extends GetView<HomeController> {
                               onChanged: (value) {},
                             ),
                           ),*/
-                    Text(
-                      ' 1th khoroo, chingeltei...',
+                          Text(
+                            ' 1th khoroo, chingeltei...',
+                            style: TextStyle(
+                              color: ZeplinColors.system_color_gray_900,
+                              fontSize: 12,
+                              fontFamily: 'SFProDisplay',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const SvgAsset(Assets.bell),
+                    ),
+                    IconButton(
+                      onPressed: () => Get.toNamed(Routes.SAVED),
+                      icon: const SvgAsset(Assets.bookmarkAlt),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 90,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.SEARCH);
+                        },
+                        child: SearchInputView(leading: true, enabled: false),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Get.toNamed(Routes.SEARCH);
+                      },
+                      icon: const SvgAsset(Assets.filter),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 160,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: Swiper(
+                  itemCount: 3,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      alignment: Alignment.bottomLeft,
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(Assets.homeGiftcard),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  pagination: const SwiperPagination(
+                    alignment: Alignment.bottomCenter,
+                    margin: EdgeInsets.only(bottom: 0),
+                    builder: DotSwiperPaginationBuilder(
+                      activeColor: ZeplinColors.system_color_primary_400,
+                      color: ZeplinColors.system_color_gray_400,
+                      activeSize: 6,
+                      size: 6,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: GridView.count(
+                  crossAxisCount: 4,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    buildIcon(Assets.scissors, 'Үсчин'),
+                    buildIcon(Assets.manicure, 'Маникюр'),
+                    buildIcon(Assets.hair, 'Нүүр будалт'),
+                    buildIcon(Assets.woman, 'Массаж'),
+                    buildIcon(Assets.hairStar, 'Хими'),
+                    buildIcon(Assets.cart, 'Худалдаа'),
+                    buildIcon(Assets.gift, 'Бэлгийн карт'),
+                    buildIcon(Assets.more, 'Бусад'),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Таны байршилд ойрхон',
                       style: TextStyle(
                         color: ZeplinColors.system_color_gray_900,
-                        fontSize: 12,
+                        fontSize: 16,
                         fontFamily: 'SFProDisplay',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => Get.toNamed(Routes.LOCATION),
+                      child: const Text(
+                        'Бүгд >',
+                        style: TextStyle(
+                          color: ZeplinColors.system_color_gray_500,
+                          fontFamily: 'SFProDisplay',
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: const SvgAsset(Assets.bell),
-              ),
-              IconButton(
-                onPressed: () => Get.toNamed(Routes.SAVED),
-                icon: const SvgAsset(Assets.bookmarkAlt),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          height: 90,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 4,
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Get.toNamed(Routes.SEARCH);
-                  },
-                  child: SearchInputView(leading: true, enabled: false),
+              SizedBox(
+                height: Get.width * viewportFraction + 80,
+                child: PageView(
+                  // pageSnapping: false,
+                  controller: controller.nearbyController,
+                  padEnds: false,
+                  children: [
+                    SalonCardView(),
+                    SalonCardView(),
+                    SalonCardView(),
+                    SalonCardView(),
+                    SalonCardView(),
+                  ],
                 ),
               ),
-              IconButton(
-                onPressed: () {
-                  Get.toNamed(Routes.SEARCH);
-                },
-                icon: const SvgAsset(Assets.filter),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          height: 160,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 4,
-          ),
-          child: Swiper(
-            itemCount: 3,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.bottomLeft,
-                padding: const EdgeInsets.only(bottom: 20),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(Assets.homeGiftcard),
-                      fit: BoxFit.cover,
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Хамгийн алдартай',
+                      style: TextStyle(
+                        color: ZeplinColors.system_color_gray_900,
+                        fontSize: 16,
+                        fontFamily: 'SFProDisplay',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ),
-              );
-            },
-            pagination: const SwiperPagination(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.only(bottom: 0),
-              builder: DotSwiperPaginationBuilder(
-                activeColor: ZeplinColors.system_color_primary_400,
-                color: ZeplinColors.system_color_gray_400,
-                activeSize: 6,
-                size: 6,
-              ),
-            ),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 4,
-          ),
-          child: GridView.count(
-            crossAxisCount: 4,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            children: [
-              buildIcon(Assets.scissors, 'Үсчин'),
-              buildIcon(Assets.manicure, 'Маникюр'),
-              buildIcon(Assets.hair, 'Нүүр будалт'),
-              buildIcon(Assets.woman, 'Массаж'),
-              buildIcon(Assets.hairStar, 'Хими'),
-              buildIcon(Assets.cart, 'Худалдаа'),
-              buildIcon(Assets.gift, 'Бэлгийн карт'),
-              buildIcon(Assets.more, 'Бусад'),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 0,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Таны байршилд ойрхон',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_900,
-                  fontSize: 16,
-                  fontFamily: 'SFProDisplay',
-                  fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Бүгд >',
+                        style: TextStyle(
+                          color: ZeplinColors.system_color_gray_500,
+                          fontFamily: 'SFProDisplay',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              TextButton(
-                onPressed: () => Get.toNamed(Routes.LOCATION),
-                child: const Text(
-                  'Бүгд >',
-                  style: TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontFamily: 'SFProDisplay',
-                    fontWeight: FontWeight.w500,
+              Obx(
+                () => TabBar(
+                  controller: controller.tabController,
+                  labelColor: ZeplinColors.system_color_gray_100,
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 5),
+                  indicatorPadding: EdgeInsets.zero,
+                  indicator: const BoxDecoration(),
+                  isScrollable: true,
+                  tabs: <Widget>[
+                    buildTab(0, "All"),
+                    buildTab(1, "Salon"),
+                    buildTab(2, "Barber Shop"),
+                    buildTab(3, "1:1 VIP"),
+                  ],
+                  unselectedLabelColor: ZeplinColors.system_color_gray_500,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: controller.organizations.length,
+                  itemBuilder: (context, index) => SizedBox(
+                    height: 100,
+                    child: SalonTileView(
+                        organization: controller.organizations[index]),
                   ),
                 ),
               ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: Get.width * viewportFraction + 80,
-          child: PageView(
-            // pageSnapping: false,
-            controller: controller.nearbyController,
-            padEnds: false,
-            children: [
-              SalonCardView(),
-              SalonCardView(),
-              SalonCardView(),
-              SalonCardView(),
-              SalonCardView(),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 0,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Хамгийн алдартай',
-                style: TextStyle(
-                  color: ZeplinColors.system_color_gray_900,
-                  fontSize: 16,
-                  fontFamily: 'SFProDisplay',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Бүгд >',
-                  style: TextStyle(
-                    color: ZeplinColors.system_color_gray_500,
-                    fontFamily: 'SFProDisplay',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Obx(
-          () => TabBar(
-            controller: controller.tabController,
-            labelColor: ZeplinColors.system_color_gray_100,
-            labelPadding: const EdgeInsets.symmetric(horizontal: 5),
-            indicatorPadding: EdgeInsets.zero,
-            indicator: const BoxDecoration(),
-            isScrollable: true,
-            tabs: <Widget>[
-              buildTab(0, "All"),
-              buildTab(1, "Salon"),
-              buildTab(2, "Barber Shop"),
-              buildTab(3, "1:1 VIP"),
-            ],
-            unselectedLabelColor: ZeplinColors.system_color_gray_500,
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 4,
-          ),
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 6,
-            itemBuilder: (context, index) => SizedBox(
-              height: 100,
-              child: SalonTileView(),
-            ),
-          ),
-        ),
-        // const SizedBox(height: 40),
-      ]),
+              // const SizedBox(height: 40),
+            ]);
+          }),
     );
   }
 

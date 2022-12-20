@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ReserveEditController extends GetxController with StateMixin {
-
-  PageController pageControllerTime = PageController(viewportFraction: 80 / Get.width);
+  PageController pageControllerTime =
+      PageController(viewportFraction: 80 / Get.width);
   PageController pageControllerService = PageController(viewportFraction: 1.0);
   PageController pageControllerStylist = PageController(viewportFraction: 0.2);
 

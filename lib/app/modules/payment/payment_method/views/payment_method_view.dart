@@ -68,7 +68,8 @@ class PaymentMethodView extends GetView<PaymentMethodController> {
                                 groupValue: 'qpay',
                                 value: controller.method.value,
                                 onChanged: controller.changeValue,
-                                activeColor: ZeplinColors.system_color_primary_800,
+                                activeColor:
+                                    ZeplinColors.system_color_primary_800,
                               ),
                               onTap: () => controller.changeValue('qpay'),
                             ),
@@ -99,7 +100,8 @@ class PaymentMethodView extends GetView<PaymentMethodController> {
                                 groupValue: 'bank',
                                 value: controller.method.value,
                                 onChanged: controller.changeValue,
-                                activeColor: ZeplinColors.system_color_primary_800,
+                                activeColor:
+                                    ZeplinColors.system_color_primary_800,
                               ),
                               onTap: () => controller.changeValue('bank'),
                             ),

@@ -11,7 +11,7 @@ class TermsView extends GetView<TermsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: ZeplinColors.system_color_gray_100,
+      // backgroundColor: ZeplinColors.system_color_gray_100,
       appBar: AppBar(
         backgroundColor: ZeplinColors.system_color_gray_100,
         leading: const BackButtonView(),

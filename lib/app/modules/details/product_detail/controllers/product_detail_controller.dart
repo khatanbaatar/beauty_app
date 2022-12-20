@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProductDetailController extends GetxController 
+class ProductDetailController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late TabController tabController;
   RxInt tabIndex = 0.obs;

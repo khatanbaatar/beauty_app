@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:get/get.dart';
 
-class SearchController extends GetxController
-    with GetTickerProviderStateMixin {
-
+class SearchController extends GetxController with GetTickerProviderStateMixin {
   late TabController tabController;
   late TabController tab1Controller;
   late TabController tab2Controller;

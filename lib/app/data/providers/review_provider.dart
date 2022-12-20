@@ -4,7 +4,7 @@ import '../models/review.dart';
 import 'base_provider.dart';
 
 class ReviewProvider extends BaseProvider {
-  ReviewProvider(prefix) : super('/tr$prefix/review');
+  ReviewProvider(prefix) : super('/review');
 
   Future<Review> getItem(int id) async {
     final response = await super.getItemResp(id);

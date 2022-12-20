@@ -12,8 +12,8 @@ class LocationController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    BitmapDescriptor.fromAssetImage(ImageConfiguration(size: Size(12, 12)),
-            'assets/avatar.png')
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration(size: Size(12, 12)), 'assets/avatar.png')
         .then((d) {
       customIcon = d;
       update();
