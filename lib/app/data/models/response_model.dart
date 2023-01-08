@@ -1,7 +1,16 @@
 import 'dart:convert';
 
-import 'package:beauty_app/app/data/models/organization/organization.dart';
+import 'package:beauty_app/app/data/models/category.dart';
+import 'package:beauty_app/app/data/models/coupon.dart';
+import 'package:beauty_app/app/data/models/job/job.dart';
+import 'package:beauty_app/app/data/models/location.dart';
+import 'package:beauty_app/app/data/models/option_group.dart';
+import 'package:beauty_app/app/data/models/options/options.dart';
+import 'package:beauty_app/app/data/models/order/order.dart';
+import 'package:beauty_app/app/data/models/organization.dart';
+import 'package:beauty_app/app/data/models/promotion.dart';
 import 'package:beauty_app/app/data/models/review.dart';
+import 'package:beauty_app/app/data/models/tag.dart';
 import 'package:beauty_app/app/data/models/user.dart';
 
 class ResponseModel<T> {
@@ -48,6 +57,33 @@ class ResponseModel<T> {
       }
       if (T == Organization) {
         data?.add(Organization.fromJson(v) as T);
+      }
+      if (T == Category) {
+        data?.add(Category.fromJson(v) as T);
+      }
+      if (T == Coupon) {
+        data?.add(Coupon.fromJson(v) as T);
+      }
+      if (T == Location) {
+        data?.add(Location.fromJson(v) as T);
+      }
+      if (T == OptionGroup) {
+        data?.add(OptionGroup.fromJson(v) as T);
+      }
+      if (T == Promotion) {
+        data?.add(Promotion.fromJson(v) as T);
+      }
+      if (T == Tag) {
+        data?.add(Tag.fromJson(v) as T);
+      }
+      if (T == Job) {
+        data?.add(Job.fromJson(v) as T);
+      }
+      if (T == Options) {
+        data?.add(Options.fromJson(v) as T);
+      }
+      if (T == Order) {
+        data?.add(Order.fromJson(v) as T);
       }
     });
     pageable =

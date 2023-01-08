@@ -1,6 +1,7 @@
+import 'package:beauty_app/app/data/models/organization.dart';
+
 import 'duty.dart';
 import 'experience.dart';
-import 'organization.dart';
 import 'salary_type.dart';
 import 'work_type.dart';
 

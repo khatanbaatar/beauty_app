@@ -4,7 +4,7 @@ import '../models/response_model.dart';
 import 'base_provider.dart';
 
 class LocationProvider extends BaseProvider {
-  LocationProvider(prefix) : super('/api/mobile/view/location');
+  LocationProvider() : super('/mobile/view/location');
 
   Future<Location> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');

@@ -1,33 +1,33 @@
 import 'package:get/get.dart';
-import '../models/location.dart';
+import '../models/category.dart';
 import '../models/response_model.dart';
 import 'base_provider.dart';
 
-class LocationProvider extends BaseProvider {
-  LocationProvider(prefix) : super('/api/mobile/view/location');
+class CategoryProvider extends BaseProvider {
+  CategoryProvider() : super('/mobile/view/category');
 
-  Future<Location> getItem(int id) async {
+  Future<Category> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');
-    return Location.fromJson(response.body);
+    return Category.fromJson(response.body);
   }
 
-  Future<List<Location>> getAll() async {
+  Future<List<Category>> getAll() async {
     Response response = await get('${endpoint}s');
-    List<Location> data = [];
+    List<Category> data = [];
     response.body.forEach((v) {
-      data.add(Location.fromJson(v));
+      data.add(Category.fromJson(v));
     });
     return data;
   }
 
-  Future<ResponseModel<Location>> getList() async {
+  Future<ResponseModel<Category>> getList() async {
     Response response = await super.getListResp();
-    return ResponseModel<Location>.fromJson(response.body);
+    return ResponseModel<Category>.fromJson(response.body);
   }
 
-  Future<ResponseModel<Location>> postList() async {
+  Future<ResponseModel<Category>> postList() async {
     Response response = await super.postListResp();
-    return ResponseModel<Location>.fromJson(response.body);
+    return ResponseModel<Category>.fromJson(response.body);
   }
 
   Future<bool> postItem(item) async {
@@ -35,7 +35,7 @@ class LocationProvider extends BaseProvider {
     return response.statusCode == 200;
   }
 
-  Future<bool> putItem(Location item) async {
+  Future<bool> putItem(Category item) async {
     Response response = await super.putResp(item, item.id!);
     return response.statusCode == 200;
   }

@@ -1,5 +1,7 @@
-import 'package:beauty_app/app/data/models/organization/organization.dart';
+import 'package:beauty_app/app/data/models/category.dart';
+import 'package:beauty_app/app/data/models/organization.dart';
 import 'package:beauty_app/app/data/models/response_model.dart';
+import 'package:beauty_app/app/data/providers/category_provider.dart';
 import 'package:beauty_app/app/data/providers/organization_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +20,10 @@ class HomeController extends GetxController
     viewportFraction: viewportFraction,
   );
   List<Organization> organizations = [];
+  List<Category> categories = [];
 
   OrganizationProvider organizationProvider = OrganizationProvider();
+  CategoryProvider categoryProvider = CategoryProvider();
 
   final count = 0.obs;
   @override
@@ -33,20 +37,23 @@ class HomeController extends GetxController
     getData();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-    getData();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
   void getData() async {
+    getCategoryData();
+    getOrgData();
+  }
+
+  void getCategoryData() async {
+    categoryProvider.setFilter();
+    ResponseModel<Category> resp = await categoryProvider.postList();
+    categories = resp.data ?? [];
+    update();
+  }
+
+  void getOrgData() async {
     organizationProvider.setFilter(
-        filterField: "typeId", filterValue: tabController.index);
+      filterField: "typeId",
+      filterValue: tabController.index,
+    );
     ResponseModel<Organization> resp = await organizationProvider.postList();
     organizations = resp.data ?? [];
     update();

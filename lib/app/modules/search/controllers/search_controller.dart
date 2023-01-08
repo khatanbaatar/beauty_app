@@ -1,3 +1,6 @@
+import 'package:beauty_app/app/data/models/organization.dart';
+import 'package:beauty_app/app/data/models/response_model.dart';
+import 'package:beauty_app/app/data/providers/organization_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:get/get.dart';
@@ -12,9 +15,11 @@ class SearchController extends GetxController with GetTickerProviderStateMixin {
 
   final int pageSize = 10;
   late PagewiseLoadController pagewiseLoadController;
+  OrganizationProvider organizationProvider = OrganizationProvider();
 
   RangeValues priceRangeValues = RangeValues(50000, 500000);
   bool searching = false;
+  String keyword = "";
 
   @override
   void onInit() {
@@ -38,12 +43,32 @@ class SearchController extends GetxController with GetTickerProviderStateMixin {
   }
 
   Future<List> getData(page) async {
-    page = page ?? 0;
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    print("Getting pages");
+    organizationProvider.setFilter(
+      filterField: "name",
+      filterOperator: "contains",
+      filterValue: keyword,
+    );
+    ResponseModel<Organization> resp = await organizationProvider.postList();
+    return resp.data ?? [];
   }
 
   void updateRangeValue(RangeValues val) {
     priceRangeValues = val;
+    update();
+  }
+
+  search(String _keyword) {
+    keyword = _keyword;
+    print("Search keyword: $keyword");
+    searching = true;
+    pagewiseLoadController.reset();
+    update();
+  }
+
+  clear() {
+    keyword = "";
+    searching = false;
     update();
   }
 }

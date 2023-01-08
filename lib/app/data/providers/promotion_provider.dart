@@ -4,7 +4,7 @@ import '../models/response_model.dart';
 import 'base_provider.dart';
 
 class PromotionProvider extends BaseProvider {
-  PromotionProvider(prefix) : super('/api/mobile/view/promotion');
+  PromotionProvider() : super('/mobile/view/promotion');
 
   Future<Promotion> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');

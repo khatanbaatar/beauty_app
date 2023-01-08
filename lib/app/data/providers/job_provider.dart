@@ -4,7 +4,7 @@ import '../models/response_model.dart';
 import 'base_provider.dart';
 
 class JobProvider extends BaseProvider {
-  JobProvider(prefix) : super('/api/mobile/view/job');
+  JobProvider() : super('/mobile/view/job');
 
   Future<Job> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');

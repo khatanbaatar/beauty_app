@@ -1,4 +1,7 @@
+import 'package:beauty_app/app/components/common/views/cached_network_image_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
+import 'package:beauty_app/app/data/models/lut_user/lut_user.dart';
+import 'package:beauty_app/app/data/models/user.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -7,9 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DesignerTileView extends GetView {
+  LutUser? designer;
   List<Widget> children = [];
   MainAxisAlignment? mainAxisAlignment;
   bool? hasShadow;
+
+  DesignerTileView({super.key, this.designer});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +41,10 @@ class DesignerTileView extends GetView {
                     },
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.network(
-                          "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hwVDS6hfp4Nwdc9HJImycQHaHa%26pid%3DApi&f=1&ipt=57d470ddd662119cd81188d43b7d51fc82bf054dfc9c07af89c5912af69a45e1&ipo=images"),
+                      child: CachedNetworkImageView(
+                        imageUrl: designer?.avatar?.uri ??
+                        "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.hwVDS6hfp4Nwdc9HJImycQHaHa%26pid%3DApi&f=1&ipt=57d470ddd662119cd81188d43b7d51fc82bf054dfc9c07af89c5912af69a45e1&ipo=images"
+                      ),
                     ),
                   ),
                 ),
@@ -48,9 +56,9 @@ class DesignerTileView extends GetView {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Matrix Salon',
-                        style: TextStyle(
+                      Text(
+                        "${designer?.name}",
+                        style: const TextStyle(
                           color: ZeplinColors.system_color_gray_900,
                           fontFamily: 'SFProDisplay',
                         ),
@@ -65,30 +73,30 @@ class DesignerTileView extends GetView {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                '1th khoroo, Chingeltei disrict',
-                                style: TextStyle(
+                              Text(
+                                "${designer?.email}",
+                                style: const TextStyle(
                                   color: ZeplinColors.system_color_gray_500,
                                   fontSize: 12,
                                   fontFamily: 'SFProDisplay',
                                 ),
                               ),
                               Row(
-                                children: const [
-                                  ReviewStarView(),
+                                children: [
+                                  const ReviewStarView(),
                                   Text.rich(
                                     TextSpan(
                                       children: [
                                         TextSpan(
                                           text: ' 4.8 (125)  ',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             color: ZeplinColors
                                                 .system_color_gray_500,
                                             fontSize: 12,
                                             fontFamily: 'SFProDisplay',
                                           ),
                                         ),
-                                        TextSpan(
+                                        const TextSpan(
                                           text: '•',
                                           style: TextStyle(
                                             color: ZeplinColors
@@ -98,8 +106,8 @@ class DesignerTileView extends GetView {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: '  10:00~21:30',
-                                          style: TextStyle(
+                                          text: '  ${designer?.organization?.name}',
+                                          style: const TextStyle(
                                             color: ZeplinColors
                                                 .system_color_gray_500,
                                             fontSize: 12,
@@ -108,7 +116,7 @@ class DesignerTileView extends GetView {
                                         ),
                                       ],
                                     ),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: ZeplinColors.system_color_gray_500,
                                       fontSize: 12,
                                       fontFamily: 'SFProDisplay',

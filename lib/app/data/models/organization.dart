@@ -1,3 +1,5 @@
+import 'package:beauty_app/app/data/models/order/avatar.dart';
+
 import 'location.dart';
 
 class Organization {
@@ -34,7 +36,7 @@ class Organization {
   dynamic bagId;
   Location? aimag;
   Location? soum;
-  dynamic avatar;
+  Avatar? avatar;
   List<dynamic>? categories;
   List<dynamic>? images;
   List<dynamic>? weekdays;
@@ -117,7 +119,9 @@ class Organization {
         soum: json['soum'] == null
             ? null
             : Location.fromJson(json['soum'] as Map<String, dynamic>),
-        avatar: json['avatar'] as dynamic,
+        avatar: json['avatar'] == null
+            ? null
+            : Avatar.fromJson(json['avatar'] as Map<String, dynamic>),
         categories: json['categories'] as List<dynamic>?,
         images: json['images'] as List<dynamic>?,
         weekdays: json['weekdays'] as List<dynamic>?,

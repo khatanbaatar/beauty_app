@@ -1,21 +1,21 @@
 class Avatar {
   String? regDtm;
   String? modDtm;
-  int? regId;
-  int? modId;
+  num? regId;
+  num? modId;
   bool? useYn;
-  int? id;
+  num? id;
   String? name;
   String? filePath;
   String? fileSaveNm;
   String? mimeType;
   String? uri;
   dynamic location;
-  int? fileSize;
+  num? fileSize;
   dynamic fileType;
   String? type;
-  int? size;
-  int? proType;
+  num? size;
+  num? proType;
   dynamic formId;
 
   Avatar({
@@ -42,21 +42,21 @@ class Avatar {
   factory Avatar.fromJson(Map<String, dynamic> json) => Avatar(
         regDtm: json['regDtm'] as String?,
         modDtm: json['modDtm'] as String?,
-        regId: json['regId'] as int?,
-        modId: json['modId'] as int?,
+        regId: json['regId'] as num?,
+        modId: json['modId'] as num?,
         useYn: json['useYn'] as bool?,
-        id: json['id'] as int?,
+        id: json['id'] as num?,
         name: json['name'] as String?,
         filePath: json['filePath'] as String?,
         fileSaveNm: json['fileSaveNm'] as String?,
         mimeType: json['mimeType'] as String?,
         uri: json['uri'] as String?,
         location: json['location'] as dynamic,
-        fileSize: json['fileSize'] as int?,
+        fileSize: json['fileSize'] as num?,
         fileType: json['fileType'] as dynamic,
         type: json['type'] as String?,
-        size: json['size'] as int?,
-        proType: json['proType'] as int?,
+        size: json['size'] as num?,
+        proType: json['proType'] as num?,
         formId: json['formId'] as dynamic,
       );
 

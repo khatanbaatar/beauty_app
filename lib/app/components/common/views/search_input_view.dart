@@ -9,11 +9,12 @@ class SearchInputView extends GetView {
   final bool? enabled;
   final bool? leading;
   final Function(String)? onSubmitted;
+  final Function()? onClear;
   final TextEditingController _controller = TextEditingController(text: '');
 
   var text = Rx<String>("");
 
-  SearchInputView({this.enabled, this.leading, this.onSubmitted});
+  SearchInputView({this.enabled, this.leading, this.onSubmitted, this.onClear});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,9 @@ class SearchInputView extends GetView {
         // cursorColor: Colors.black,
         enabled: enabled ?? true,
         autofocus: false,
-        onSubmitted: (_) {},
+        onSubmitted: (keyword) {
+          onSubmitted?.call(keyword);
+        },
         onChanged: (value) {
           text.value = value;
         },
@@ -80,6 +83,7 @@ class SearchInputView extends GetView {
                   onPressed: () {
                     _controller.clear();
                     text.value = "";
+                    onClear?.call();
                   },
                 ),
         ),

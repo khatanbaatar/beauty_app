@@ -1,3 +1,5 @@
+import 'package:beauty_app/app/data/models/order/avatar.dart';
+
 class User {
   dynamic regDtm;
   String? modDtm;
@@ -17,6 +19,7 @@ class User {
   bool? tokenExpired;
   bool? push;
   bool? alert;
+  Avatar? avatar;
 
   User({
     this.regDtm,
@@ -36,6 +39,7 @@ class User {
     this.tokenExpired,
     this.push,
     this.alert,
+    this.avatar,
   });
 
   User.fromJson(Map<String, dynamic> json) {
@@ -57,6 +61,9 @@ class User {
     tokenExpired = json['tokenExpired'];
     push = json['push'];
     alert = json['alert'];
+    avatar = json['avatar'] == null
+        ? null
+        : Avatar.fromJson(json['avatar'] as Map<String, dynamic>);
   }
 
   Map<String, dynamic> toJson() {

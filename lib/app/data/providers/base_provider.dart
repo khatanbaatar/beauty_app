@@ -21,7 +21,7 @@ class BaseProvider<T> extends GetConnect {
   @override
   void onInit() {
     // httpClient.baseUrl = ApiConstants.baseUrl;
-    httpClient.addRequestModifier(authInterceptor);
+    // httpClient.addRequestModifier(authInterceptor);
   }
 
   Future<Response> getItemResp(int id) async {

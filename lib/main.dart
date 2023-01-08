@@ -16,8 +16,8 @@ Future<void> main() async {
 
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.white, // navigation bar color
-    statusBarColor: Colors.white, // status bar color
+    // systemNavigationBarColor: Colors.white, // navigation bar color
+    // statusBarColor: Colors.white, // status bar color
     statusBarIconBrightness: Brightness.dark, // status bar icons' color
     systemNavigationBarIconBrightness:
         Brightness.dark, //navigation bar icons' color

@@ -4,7 +4,7 @@ import '../models/response_model.dart';
 import 'base_provider.dart';
 
 class TagProvider extends BaseProvider {
-  TagProvider(prefix) : super('/api/mobile/view/tag');
+  TagProvider() : super('/mobile/view/tag');
 
   Future<Tag> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');

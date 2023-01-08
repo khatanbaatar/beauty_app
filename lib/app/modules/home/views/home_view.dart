@@ -288,7 +288,8 @@ class HomeView extends GetView<HomeController> {
                   itemBuilder: (context, index) => SizedBox(
                     height: 100,
                     child: SalonTileView(
-                        organization: controller.organizations[index]),
+                      organization: controller.organizations[index],
+                    ),
                   ),
                 ),
               ),

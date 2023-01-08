@@ -131,96 +131,107 @@ class NearMeView extends GetView<NearMeController> {
             ],
           ),
         ),
-        body: TabBarView(
-          controller: controller.tabController,
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  Container(
-                    color: Colors.white,
-                    child: Obx(
-                      () => TabBar(
-                        controller: controller.tab1Controller,
-                        labelColor: ZeplinColors.system_color_gray_100,
-                        labelPadding: const EdgeInsets.symmetric(horizontal: 5),
-                        indicatorPadding: EdgeInsets.zero,
-                        indicator: const BoxDecoration(),
-                        isScrollable: true,
-                        tabs: <Widget>[
-                          buildTab(0, "All", controller.tab1Index),
-                          buildTab(1, "Salon", controller.tab1Index),
-                          buildTab(2, "Barber Shop", controller.tab1Index),
-                          buildTab(3, "1:1 VIP", controller.tab1Index),
-                        ],
-                        unselectedLabelColor:
-                            ZeplinColors.system_color_gray_500,
+        body: GetBuilder<NearMeController>(
+          init: NearMeController(),
+          initState: (_) {},
+          builder: (controller) {
+            return TabBarView(
+              controller: controller.tabController,
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      Container(
+                        color: Colors.white,
+                        child: Obx(
+                          () => TabBar(
+                            controller: controller.tab1Controller,
+                            labelColor: ZeplinColors.system_color_gray_100,
+                            labelPadding:
+                                const EdgeInsets.symmetric(horizontal: 5),
+                            indicatorPadding: EdgeInsets.zero,
+                            indicator: const BoxDecoration(),
+                            isScrollable: true,
+                            tabs: <Widget>[
+                              buildTab(0, "All", controller.tab1Index),
+                              buildTab(1, "Salon", controller.tab1Index),
+                              buildTab(2, "Barber Shop", controller.tab1Index),
+                              buildTab(3, "1:1 VIP", controller.tab1Index),
+                            ],
+                            unselectedLabelColor:
+                                ZeplinColors.system_color_gray_500,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 8,
-                      itemBuilder: (context, index) => SizedBox(
-                        height: 100,
-                        child: SalonTileView(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 4,
+                        ),
+                        child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: controller.salons.length,
+                          itemBuilder: (context, index) => SizedBox(
+                            height: 100,
+                            child: SalonTileView(
+                                organization: controller.salons[index]),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 8),
-                  Container(
-                    color: Colors.white,
-                    child: Obx(
-                      () => TabBar(
-                        controller: controller.tab2Controller,
-                        labelColor: ZeplinColors.system_color_gray_100,
-                        labelPadding: const EdgeInsets.symmetric(horizontal: 5),
-                        indicatorPadding: EdgeInsets.zero,
-                        indicator: const BoxDecoration(),
-                        isScrollable: true,
-                        tabs: <Widget>[
-                          buildTab(0, "All", controller.tab2Index),
-                          buildTab(1, "Тайралт", controller.tab2Index),
-                          buildTab(2, "Хими", controller.tab2Index),
-                          buildTab(3, "Будаг", controller.tab2Index),
-                        ],
-                        unselectedLabelColor:
-                            ZeplinColors.system_color_gray_500,
+                ),
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 8),
+                      Container(
+                        color: Colors.white,
+                        child: Obx(
+                          () => TabBar(
+                            controller: controller.tab2Controller,
+                            labelColor: ZeplinColors.system_color_gray_100,
+                            labelPadding:
+                                const EdgeInsets.symmetric(horizontal: 5),
+                            indicatorPadding: EdgeInsets.zero,
+                            indicator: const BoxDecoration(),
+                            isScrollable: true,
+                            tabs: <Widget>[
+                              buildTab(0, "All", controller.tab2Index),
+                              buildTab(1, "Тайралт", controller.tab2Index),
+                              buildTab(2, "Хими", controller.tab2Index),
+                              buildTab(3, "Будаг", controller.tab2Index),
+                            ],
+                            unselectedLabelColor:
+                                ZeplinColors.system_color_gray_500,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: 6,
-                      itemBuilder: (context, index) => SizedBox(
-                        height: 100,
-                        child: DesignerTileView(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 4,
+                        ),
+                        child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: controller.designers.length,
+                          itemBuilder: (context, index) => SizedBox(
+                            height: 100,
+                            child: DesignerTileView(
+                              designer: controller.designers[index],
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

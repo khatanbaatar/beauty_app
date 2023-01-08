@@ -4,7 +4,7 @@ import '../models/response_model.dart';
 import 'base_provider.dart';
 
 class OrderProvider extends BaseProvider {
-  OrderProvider(prefix) : super('/api/mobile/view/order');
+  OrderProvider() : super('/mobile/view/order');
 
   Future<Order> getItem(int id) async {
     final response = await super.get('$endpoint/item/$id');

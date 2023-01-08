@@ -24,7 +24,7 @@ class SearchView extends GetView<SearchController> {
     return Scaffold(
       appBar: AppBar(
         leading: const BackButtonView(),
-        title: SearchInputView(leading: true),
+        title: SearchInputView(leading: true, onSubmitted: controller.search, onClear: controller.clear,),
         actions: [
           IconButton(
             onPressed: () => _filter(context),
@@ -32,59 +32,67 @@ class SearchView extends GetView<SearchController> {
           ),
         ],
       ),
-      body: CustomScrollView(
-        // physics: const BouncingScrollPhysics(),
-        slivers: <Widget>[
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                if (!controller.searching)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    child: Text(
-                      'Хамгийн эрэлттэй хайлт',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_700,
-                        fontSize: 16,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w500,
+      body: GetBuilder<SearchController>(
+        init: SearchController(),
+        initState: (_) {},
+        builder: (controller) {
+          return CustomScrollView(
+            // physics: const BouncingScrollPhysics(),
+            slivers: <Widget>[
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    if (!controller.searching)
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: Text(
+                          'Хамгийн эрэлттэй хайлт',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_700,
+                            fontSize: 16,
+                            fontFamily: 'SFProDisplay',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    Container(
+                      color: Colors.white,
+                      child: Obx(
+                        () => TabBar(
+                          controller: controller.tabController,
+                          labelColor: ZeplinColors.system_color_gray_100,
+                          labelPadding:
+                              const EdgeInsets.symmetric(horizontal: 5),
+                          indicatorPadding: EdgeInsets.zero,
+                          indicator: const BoxDecoration(),
+                          isScrollable: true,
+                          tabs: <Widget>[
+                            buildTab(0, " All", controller.tabIndex),
+                            buildTab(1, " Barber shop", controller.tabIndex),
+                            buildTab(2, " VIP", controller.tabIndex),
+                            buildTab(3, " 1:1", controller.tabIndex),
+                          ],
+                          unselectedLabelColor:
+                              ZeplinColors.system_color_gray_500,
+                        ),
                       ),
                     ),
-                  ),
-                Container(
-                  color: Colors.white,
-                  child: Obx(
-                    () => TabBar(
-                      controller: controller.tabController,
-                      labelColor: ZeplinColors.system_color_gray_100,
-                      labelPadding: const EdgeInsets.symmetric(horizontal: 5),
-                      indicatorPadding: EdgeInsets.zero,
-                      indicator: const BoxDecoration(),
-                      isScrollable: true,
-                      tabs: <Widget>[
-                        buildTab(0, " All", controller.tabIndex),
-                        buildTab(1, " Barber shop", controller.tabIndex),
-                        buildTab(2, " VIP", controller.tabIndex),
-                        buildTab(3, " 1:1", controller.tabIndex),
-                      ],
-                      unselectedLabelColor: ZeplinColors.system_color_gray_500,
-                    ),
-                  ),
-                ),
-                if (!controller.searching)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    child: Text(
-                      'Ангилал',
-                      style: TextStyle(
-                        color: ZeplinColors.system_color_gray_700,
-                        fontSize: 16,
-                        fontFamily: 'SFProDisplay',
-                        fontWeight: FontWeight.w500,
+                    if (!controller.searching)
+                      const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: Text(
+                          'Ангилал',
+                          style: TextStyle(
+                            color: ZeplinColors.system_color_gray_700,
+                            fontSize: 16,
+                            fontFamily: 'SFProDisplay',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                /*GridView.count(
+                    /*GridView.count(
                   crossAxisCount: 4,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -94,27 +102,29 @@ class SearchView extends GetView<SearchController> {
                     category(),
                   ],
                 ),*/
-              ],
-            ),
-          ),
-          if (controller.searching)
-            PagewiseSliverList(
-              pageLoadController: controller.pagewiseLoadController,
-              itemBuilder: (context, item, index) => Container(
-                color: Colors.white,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 4,
+                  ],
                 ),
-                child: SalonTileView(),
               ),
-              noItemsFoundBuilder: (context) {
-                return Text("no.data".tr);
-              },
-              loadingBuilder: (context) => LoadingView(),
-              showRetry: false,
-            ),
-        ],
+              if (controller.searching)
+                PagewiseSliverList(
+                  pageLoadController: controller.pagewiseLoadController,
+                  itemBuilder: (context, item, index) => Container(
+                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    child: SalonTileView(organization: item),
+                  ),
+                  noItemsFoundBuilder: (context) {
+                    return Text("no.data".tr);
+                  },
+                  loadingBuilder: (context) => LoadingView(),
+                  showRetry: false,
+                ),
+            ],
+          );
+        },
       ),
     );
   }

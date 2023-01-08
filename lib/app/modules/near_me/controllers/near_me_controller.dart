@@ -1,3 +1,7 @@
+import 'package:beauty_app/app/data/models/lut_user/lut_user.dart';
+import 'package:beauty_app/app/data/models/organization.dart';
+import 'package:beauty_app/app/data/models/user.dart';
+import 'package:beauty_app/app/data/providers/near_me_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +14,9 @@ class NearMeController extends GetxController with GetTickerProviderStateMixin {
   RxInt tabIndex = 0.obs;
   RxInt tab1Index = 0.obs;
   RxInt tab2Index = 0.obs;
+  NearmeProvider nearmeProvider = NearmeProvider();
+  List<Organization> salons = [];
+  List<LutUser> designers = [];
 
   @override
   void onInit() {
@@ -22,9 +29,23 @@ class NearMeController extends GetxController with GetTickerProviderStateMixin {
     });
     tab1Controller.addListener(() {
       tab1Index.value = tab1Controller.index;
+      getSalonData();
     });
     tab2Controller.addListener(() {
       tab2Index.value = tab2Controller.index;
+      getDesignerData();
     });
+    getSalonData();
+    getDesignerData();
+  }
+
+  void getSalonData() async {
+    salons = await nearmeProvider.getSalon();
+    update();
+  }
+
+  void getDesignerData() async {
+    designers = await nearmeProvider.getDesigner();
+    update();
   }
 }

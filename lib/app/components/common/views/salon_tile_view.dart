@@ -1,6 +1,7 @@
+import 'package:beauty_app/app/components/common/views/cached_network_image_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
-import 'package:beauty_app/app/data/models/organization/organization.dart';
+import 'package:beauty_app/app/data/models/organization.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
@@ -40,10 +41,14 @@ class SalonTileView extends GetView {
                     },
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset(
-                        Assets.salon,
-                        fit: BoxFit.fill,
-                      ),
+                      child: organization?.avatar?.uri != null
+                          ? CachedNetworkImageView(
+                              imageUrl: organization!.avatar!.uri,
+                            )
+                          : Image.asset(
+                              Assets.salon,
+                              fit: BoxFit.fill,
+                            ),
                     ),
                   ),
                 ),

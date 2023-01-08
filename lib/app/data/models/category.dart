@@ -48,7 +48,9 @@ class Category {
         feature: json['feature'] as bool?,
         expanded: json['expanded'] as bool?,
         hasChildren: json['hasChildren'] as bool?,
-        categories: json['categories'] as List<Category>?,
+        categories: (json['categories'] as List?)
+            ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toJson() => {
