@@ -18,7 +18,7 @@ class HomeController extends GetxController
     viewportFraction: viewportFraction,
   );
   List<Organization> organizations = [];
-  
+
   OrganizationProvider organizationProvider = OrganizationProvider();
 
   final count = 0.obs;
@@ -46,9 +46,7 @@ class HomeController extends GetxController
 
   void getData() async {
     organizationProvider.setFilter(
-      filterField: "typeId",
-      filterValue: tabController.index
-    );
+        filterField: "typeId", filterValue: tabController.index);
     ResponseModel<Organization> resp = await organizationProvider.postList();
     organizations = resp.data ?? [];
     update();

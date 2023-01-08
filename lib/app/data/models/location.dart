@@ -1,6 +1,4 @@
-import 'hibernate_lazy_initializer.dart';
-
-class Aimag {
+class Location {
   dynamic createdAt;
   dynamic updatedAt;
   bool? useYn;
@@ -11,14 +9,14 @@ class Aimag {
   String? staCode;
   String? cdNm;
   String? cdNmEng;
-  dynamic parentId;
+  int? parentId;
   dynamic center;
   double? longitude;
   double? latitude;
-  String? icon;
-  dynamic tpAsCd;
+  dynamic icon;
+  Location? tpAsCd;
 
-  Aimag({
+  Location({
     this.createdAt,
     this.updatedAt,
     this.useYn,
@@ -37,7 +35,7 @@ class Aimag {
     this.tpAsCd,
   });
 
-  factory Aimag.fromJson(Map<String, dynamic> json) => Aimag(
+  factory Location.fromJson(Map<String, dynamic> json) => Location(
         createdAt: json['createdAt'] as dynamic,
         updatedAt: json['updatedAt'] as dynamic,
         useYn: json['useYn'] as bool?,
@@ -48,12 +46,14 @@ class Aimag {
         staCode: json['staCode'] as String?,
         cdNm: json['cdNm'] as String?,
         cdNmEng: json['cdNmEng'] as String?,
-        parentId: json['parentId'] as dynamic,
+        parentId: json['parentId'] as int?,
         center: json['center'] as dynamic,
         longitude: (json['longitude'] as num?)?.toDouble(),
         latitude: (json['latitude'] as num?)?.toDouble(),
-        icon: json['icon'] as String?,
-        tpAsCd: json['tpAsCd'] as dynamic,
+        icon: json['icon'] as dynamic,
+        tpAsCd: json['tpAsCd'] == null
+            ? null
+            : Location.fromJson(json['tpAsCd'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
@@ -72,6 +72,6 @@ class Aimag {
         'longitude': longitude,
         'latitude': latitude,
         'icon': icon,
-        'tpAsCd': tpAsCd,
+        'tpAsCd': tpAsCd?.toJson(),
       };
 }

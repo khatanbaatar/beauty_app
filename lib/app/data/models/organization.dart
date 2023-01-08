@@ -1,5 +1,4 @@
-import 'aimag.dart';
-import 'soum.dart';
+import 'location.dart';
 
 class Organization {
   String? createdAt;
@@ -33,8 +32,8 @@ class Organization {
   num? sumId;
   dynamic imgId;
   dynamic bagId;
-  Aimag? aimag;
-  Soum? soum;
+  Location? aimag;
+  Location? soum;
   dynamic avatar;
   List<dynamic>? categories;
   List<dynamic>? images;
@@ -114,10 +113,10 @@ class Organization {
         bagId: json['bagId'] as dynamic,
         aimag: json['aimag'] == null
             ? null
-            : Aimag.fromJson(json['aimag'] as Map<String, dynamic>),
+            : Location.fromJson(json['aimag'] as Map<String, dynamic>),
         soum: json['soum'] == null
             ? null
-            : Soum.fromJson(json['soum'] as Map<String, dynamic>),
+            : Location.fromJson(json['soum'] as Map<String, dynamic>),
         avatar: json['avatar'] as dynamic,
         categories: json['categories'] as List<dynamic>?,
         images: json['images'] as List<dynamic>?,
