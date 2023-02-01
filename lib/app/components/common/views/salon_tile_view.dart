@@ -1,15 +1,17 @@
+import 'package:beauty_app/app/components/common/controllers/salon_tile_controller.dart';
 import 'package:beauty_app/app/components/common/views/cached_network_image_view.dart';
 import 'package:beauty_app/app/components/common/views/svg_asset_view.dart';
 import 'package:beauty_app/app/components/review/views/review_star_view.dart';
 import 'package:beauty_app/app/data/models/organization.dart';
 import 'package:beauty_app/app/routes/app_pages.dart';
+import 'package:beauty_app/app/services/wishlist_service.dart';
 import 'package:beauty_app/app/utils/assets.dart';
 import 'package:beauty_app/app/utils/color_cus.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class SalonTileView extends GetView {
+class SalonTileView extends GetView<SalonTileController> {
   Organization? organization;
   List<Widget> children = [];
   MainAxisAlignment? mainAxisAlignment;
@@ -19,6 +21,9 @@ class SalonTileView extends GetView {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut<SalonTileController>(
+      () => SalonTileController(),
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: ClipRRect(
@@ -137,8 +142,19 @@ class SalonTileView extends GetView {
                 ),
               ),
               IconButton(
-                onPressed: () {},
-                icon: const SvgAsset(Assets.bookmarkAlt),
+                onPressed: () => controller.add(organization),
+                icon: GetBuilder<SalonTileController>(
+                  init: SalonTileController(),
+                  initState: (_) {},
+                  builder: (controller) {
+                    return SvgAsset(
+                      (organization?.wishlisted ?? false)
+                          ? Assets.bookmark
+                          : Assets.bookmarkAlt,
+                      color: (organization?.wishlisted ?? false) ? Colors.red : null,
+                    );
+                  },
+                ),
               ),
             ],
           ),

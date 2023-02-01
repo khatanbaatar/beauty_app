@@ -267,12 +267,9 @@ class HomeView extends GetView<HomeController> {
                   indicatorPadding: EdgeInsets.zero,
                   indicator: const BoxDecoration(),
                   isScrollable: true,
-                  tabs: <Widget>[
-                    buildTab(0, "All"),
-                    buildTab(1, "Salon"),
-                    buildTab(2, "Barber Shop"),
-                    buildTab(3, "1:1 VIP"),
-                  ],
+                  tabs: controller.tags.map((element) {
+                    return buildTab(element.id ?? 0, element.name ?? "");
+                  }).toList(),
                   unselectedLabelColor: ZeplinColors.system_color_gray_500,
                 ),
               ),

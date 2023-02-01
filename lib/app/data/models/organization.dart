@@ -40,6 +40,7 @@ class Organization {
   List<dynamic>? categories;
   List<dynamic>? images;
   List<dynamic>? weekdays;
+  bool? wishlisted;
 
   Organization({
     this.createdAt,
@@ -79,6 +80,7 @@ class Organization {
     this.categories,
     this.images,
     this.weekdays,
+    this.wishlisted,
   });
 
   factory Organization.fromJson(Map<String, dynamic> json) => Organization(
@@ -125,6 +127,7 @@ class Organization {
         categories: json['categories'] as List<dynamic>?,
         images: json['images'] as List<dynamic>?,
         weekdays: json['weekdays'] as List<dynamic>?,
+        wishlisted: json['wishlisted'] as bool?,
       );
 
   Map<String, dynamic> toJson() => {
